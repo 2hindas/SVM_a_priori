@@ -33,12 +33,6 @@ test_features = np.pad(test_features.reshape((2006, 16, 16)), ((0, 0), (2, 2), (
                        constant_values=(-1)).reshape((2006, num_f))
 
 
-model = MLPClassifier()
-model.fit(train_features, train_targets)
-predication = model.predict(test_features)
-print("Accuracy: ", accuracy_score(test_targets, predication))
-
-
 transformations = [(1, 0),  # D
                        (-1, 0),  # U
                        (0, 1),  # R
@@ -48,12 +42,23 @@ transformations = [(1, 0),  # D
                        (-1, 1),  # RU
                        (-1, -1)]  # LU
 
+second_features = train_features
+second_targets = train_targets
+invariance = 1
+
 # Translation
-# for t in transformations[4:8]:
-#     for i in range(1, 3):
-#         second_targets = np.append(second_targets, support_vector_targets, axis=0)
-#         trans = im.shift(support_vectors.reshape((num_sv, px, px)), (0, t[0] * i, t[1] * i), mode='constant', cval=-1)
-#         second_features = np.append(second_features, trans.reshape((num_sv, num_f)), axis=0)
+if invariance:
+    for t in transformations[0:8]:
+        for i in range(1, 3):
+            second_targets = np.append(second_targets, train_targets, axis=0)
+            trans = im.shift(train_features.reshape((7290, px, px)), (0, t[0] * i, t[1] * i), mode='constant', cval=-1)
+            second_features = np.append(second_features, trans.reshape((7290, num_f)), axis=0)
+
+model = MLPClassifier()
+model.fit(second_features, second_targets)
+predication = model.predict(test_features)
+print("Accuracy: ", accuracy_score(test_targets, predication))
+
 
 # Scaling
 # trans = im.zoom(support_vectors.reshape((num_sv, px, px)), (1.0, 1.1, 1.1), mode='constant', cval=-1, order=1)[:, 1:-1, 1:-1]
@@ -77,6 +82,10 @@ transformations = [(1, 0),  # D
 """
 
 WITH 2 PX PADDINGS
+
+0.9391824526420738 NN nothing
+0.9526420737786641 NN LR 1&2 pixels
+0.9526420737786641 NN 8 directions 1&2 pixel
 
 0.9466600199401795 (no jitter)                      error = 5.333998006 %
 0.9491525423728814 (1 px jitter, 4 dir)             error = 5.0847457627 %
