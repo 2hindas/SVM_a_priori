@@ -24,16 +24,16 @@ transformations = [(1, 0),  # D
                    (-1, 1),  # RU
                    (-1, -1)]  # LU
 
-features = pd.read_csv("../data/mnist_train_features.csv")
+features = pd.read_csv("../data/mnist_train_features.csv").to_numpy()
 targets = pd.read_csv("../data/mnist_train_targets.csv").values.flatten()
-test_features = pd.read_csv("../data/mnist_test_features.csv")
+test_features = pd.read_csv("../data/mnist_test_features.csv").to_numpy()
 test_targets = pd.read_csv("../data/mnist_test_targets.csv").values.flatten()
 print("Data has been read")
 
 
 print("Training...")
 
-svm = SupportVectorMachine(features[0:1000], targets[0:1000], test_features, test_targets)
+svm = SupportVectorMachine(features, targets, test_features, test_targets)
 
 start = timer()
 
