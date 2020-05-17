@@ -3,9 +3,7 @@ import pandas as pd
 import scipy.ndimage as im
 
 from sklearn import svm
-from sklearn.metrics import accuracy_score
-from sklearn.metrics.pairwise import rbf_kernel
-from sklearn.metrics import confusion_matrix
+from sklearn import preprocessing
 from timeit import default_timer as timer
 
 from src.SupportVectorMachine import SupportVectorMachine
@@ -24,9 +22,9 @@ transformations = [(1, 0),  # D
                    (-1, 1),  # RU
                    (-1, -1)]  # LU
 
-features = pd.read_csv("../data/mnist_train_features.csv").to_numpy()
+features = preprocessing.scale(pd.read_csv("../data/mnist_train_features.csv").to_numpy())
 targets = pd.read_csv("../data/mnist_train_targets.csv").values.flatten()
-test_features = pd.read_csv("../data/mnist_test_features.csv").to_numpy()
+test_features = preprocessing.scale(pd.read_csv("../data/mnist_test_features.csv").to_numpy())
 test_targets = pd.read_csv("../data/mnist_test_targets.csv").values.flatten()
 print("Data has been read")
 
@@ -37,14 +35,35 @@ svm = SupportVectorMachine(features, targets, test_features, test_targets)
 
 start = timer()
 
-# svm.set_kernel(JitteredKernel((transformations[0:4], 1, 2)))
-# svm.train()
-# print("Error: " + str(svm.error()))
+svm.set_kernel(JitteredKernel((transformations[0:4], 1, 2)))
+svm.train()
+print("Error: " + str(svm.error()))
 # svm.set_kernel(JitteredKernel((transformations[0:8], 1, 1), (-5, 5, 5)))
 # svm.train()
 # print("Error: " + str(svm.error()))
 # svm.
-svm.train()
+
+# svm.train()
+# print("Error: " + str(svm.error()))
+#
+# svm.rotate_SV(-5, 5, 5)
+# svm.train()
+# print("Error: " + str(svm.error()))
+#
+# svm.translate_SV(transformations[0:4], 1, 1)
+# svm.translate_SV(transformations[4:8], 2, 2)
+# svm.train()
+
+# Data has been read
+# Training...
+# 10000 -> 3941 SV
+# Error: 3.62
+# 11823 -> 7739
+# Error: 2.7
+# 69651
+# Time: 1962.949880206
+# Error: 1.48
+
 end = timer()
 print("Time: " + str(end-start))
 print("Error: " + str(svm.error()))
