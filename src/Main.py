@@ -1,16 +1,18 @@
 import numpy as np
 import pandas as pd
 import scipy.ndimage as im
+from scipy import stats
 
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics.pairwise import rbf_kernel
 from sklearn.metrics import confusion_matrix
 from timeit import default_timer as timer
+from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 
 from src.SupportVectorMachine import SupportVectorMachine
 from src.Kernels import JitteredKernel
-
+from pprint import pprint
 pd.set_option('display.width', 320)
 np.set_printoptions(linewidth=320)
 
@@ -117,7 +119,8 @@ test_targets = test.iloc[:, 0].to_numpy()
 
 print("Data has been read")
 
-train_features = np.pad(train_features.reshape((7290, 16, 16)), ((0, 0), (2, 2), (2, 2)), 'constant',
+train_features = np.pad(train_features.reshape((7290, 16, 16)), ((0, 0), (2, 2), (2, 2)),
+                        'constant',
                         constant_values=(-1)).reshape((7290, num_f))
 test_features = np.pad(test_features.reshape((2006, 16, 16)), ((0, 0), (2, 2), (2, 2)), 'constant',
                        constant_values=(-1)).reshape((2006, num_f))
@@ -127,22 +130,81 @@ model = svm.SVC(kernel=jitter_kernel, cache_size=900)
 
 print("Training...")
 
-svm = SupportVectorMachine(train_features, train_targets, test_features, test_targets)
-
 start = timer()
+s = SupportVectorMachine(train_features, train_targets, test_features, test_targets)
 
-# svm.set_kernel(JitteredKernel((transformations[0:4], 1, 2)))
-# svm.train()
-# print("Error: " + str(svm.error()))
-svm.set_kernel(JitteredKernel((transformations[0:8], 1, 1), (-5, 5, 5)))
-# svm.train()
-# print("Error: " + str(svm.error()))
-# svm.
-svm.train()
-end = timer()
-print("Time: " + str(end-start))
-print("Error: " + str(svm.error()))
-exit(0)
+o_svm = svm.SVC(cache_size=800)
+o_svm.fit(train_features, train_targets)
+time1 = timer()
+print("First svm has been trained in:", time1-start)
+
+feat = train_features[o_svm.support_]
+targ = train_targets[o_svm.support_]
+
+a = s.rotate_SV(feat, -5, 0, 5)
+b = s.rotate_SV(feat, 0, 5, 5)
+c = s.translate_SV(feat, transformations[0:1], 1, 1)
+d = s.translate_SV(feat, transformations[1:2], 1, 1)
+e = s.translate_SV(feat, transformations[2:3], 1, 1)
+# f = s.translate_SV(feat, transformations[3:4], 1, 1)
+# g = s.translate_SV(feat, transformations[4:5], 2, 2)
+# h = s.translate_SV(feat, transformations[5:6], 2, 2)
+# i = s.translate_SV(feat, transformations[6:7], 2, 2)
+# j = s.translate_SV(feat, transformations[7:8], 2, 2)
+time2 = timer()
+print("Data transformed in:", time2-time1)
+
+a_svm = svm.SVC(cache_size=800)
+a_svm.fit(a, targ)
+b_svm = svm.SVC(cache_size=800)
+b_svm.fit(b, targ)
+c_svm = svm.SVC(cache_size=800)
+c_svm.fit(c, targ)
+d_svm = svm.SVC(cache_size=800)
+d_svm.fit(d, targ)
+e_svm = svm.SVC(cache_size=800)
+e_svm.fit(e, targ)
+
+
+# f_svm = svm.SVC(cache_size=800)
+# f_svm.fit(f, targ)
+# g_svm = svm.SVC(cache_size=800)
+# g_svm.fit(g, targ)
+# h_svm = svm.SVC(cache_size=800)
+# h_svm.fit(h, targ)
+# i_svm = svm.SVC(cache_size=800)
+# i_svm.fit(i, targ)
+# j_svm = svm.SVC(cache_size=800)
+# j_svm.fit(j, targ)
+time3 = timer()
+print("Other svm's trained in:", time3-time2)
+
+
+running = o_svm.decision_function(test_features)
+
+# running = np.maximum(running, a_svm.decision_function(test_features))
+# running = np.maximum(running, b_svm.decision_function(test_features))
+# running = np.maximum(running, c_svm.decision_function(test_features))
+# running = np.maximum(running, d_svm.decision_function(test_features))
+# running = np.maximum(running, e_svm.decision_function(test_features))
+# 6.281000000000006
+
+# running = o_svm.predict(test_features).reshape(-1, 1)
+# running = np.hstack((running, a_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, b_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, c_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, d_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, e_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, f_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, g_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, h_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, i_svm.predict(test_features).reshape(-1, 1)))
+# running = np.hstack((running, j_svm.predict(test_features).reshape(-1, 1)))
+
+predictions = np.argmax(running, axis=1)
+
+# modes = stats.mode(running, axis=1)
+print(100 - round(accuracy_score(test_targets, predictions) * 100, 3))
 
 """
 VSV 19.507 seconds
@@ -173,6 +235,8 @@ train -> rotate_SV(-5, 5, 5) -> train -> translate [0:4], 1, 1 & [4:8], 2, 2 -> 
 
 train -> rotate_SV(-5, 5, 5) -> train -> translate [0:4], 1, 1 & [4:8], 2, 2 -> train C=1
 5.28 -> 4.64 -> 3.04 298.330 seconds
+
+
 
 train -> rotate_SV(-5, 5, 5), translate [0:4], 1, 1 & [4:8], 2, 2 -> train C=1
 5.28 -> 3.64 134.226 seconds
