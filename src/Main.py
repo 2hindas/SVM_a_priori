@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import scipy.ndimage as im
-from scipy import stats
+from PIL import Image
 
 from sklearn import svm
 from sklearn.metrics import accuracy_score
@@ -9,6 +9,8 @@ from sklearn.metrics.pairwise import rbf_kernel
 from sklearn.metrics import confusion_matrix
 from timeit import default_timer as timer
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
+from sklearn.preprocessing import MinMaxScaler
+scaler = MinMaxScaler((0, 255))
 
 from src.SupportVectorMachine import SupportVectorMachine
 from src.Kernels import JitteredKernel
@@ -20,84 +22,10 @@ px = 20
 num_f = px ** 2
 
 
-def jitter_kernel(x_matrix, y_matrix):
-    var = x_matrix.var()
-
-    def f(a, b, v):
-        gamma = 1 / (num_f * v)
-        return rbf_kernel(a, b, gamma)
-
-    x_length = x_matrix.shape[0]
-
-    max_matrix = f(x_matrix, y_matrix, var)
-
-    transformations = [(1, 0),  # D
-                       (-1, 0),  # U
-                       (0, 1),  # R
-                       (0, -1),  # L
-                       (1, 1),  # RD
-                       (1, -1),  # LD
-                       (-1, 1),  # RU
-                       (-1, -1)]  # LU
-
-    x_reshaped = x_matrix.reshape((x_length, px, px))
-
-    # Translation
-    for t in transformations[2:4]:
-        for i in range(1, 3):
-            trans = im.shift(x_reshaped, (0, t[0] * i, t[1] * i), mode='constant', cval=-1)
-            max_matrix = np.maximum(max_matrix, f(trans.reshape((x_length, 400)), y_matrix, var))
-
-    # Rotation
-    # for i in range(0, 3):
-    #     if i != 1:
-    #         angle = -4.0 + i * 4.0
-    #         trans = im.rotate(x_reshaped, axes=(1, 2), order=1, angle=angle, mode='constant', cval=-1,
-    #                                    reshape=False)
-    #         max_matrix = np.maximum(max_matrix, f(trans.reshape((x_length, num_f)), y_matrix, var))
-
-    # Scaling
-    # trans = im.zoom(x_reshaped, (1.0, 1.1, 1.1), mode='constant', cval=-1, order=1)[:, 1:-1, 1:-1]
-    # max_matrix = np.maximum(max_matrix, f(trans.reshape((x_length, num_f)), y_matrix, var))
-
-    return max_matrix
-
-
-def jitter_kernel2(x_matrix, y_matrix):
-    var = x_matrix.var()
-
-    def f(a, b, v):
-        gamma = 1 / (num_f * v)
-        return rbf_kernel(a, b, gamma)
-
-    x_length = x_matrix.shape[0]
-
-    max_matrix = f(x_matrix, y_matrix, var)
-
-    transformations = [(1, 0),  # D
-                       (-1, 0),  # U
-                       (0, 1),  # R
-                       (0, -1),  # L
-                       (1, 1),  # RD
-                       (1, -1),  # LD
-                       (-1, 1),  # RU
-                       (-1, -1)]  # LU
-
-    x_reshaped = x_matrix.reshape((x_length, px, px))
-
-    for t in transformations[4:8]:
-        for i in range(1, 3):
-            trans = im.shift(x_reshaped, (0, t[0] * i, t[1] * i), mode='constant', cval=-1)
-            max_matrix = np.maximum(max_matrix, f(trans.reshape((x_length, 400)), y_matrix, var))
-
-    # for i in range(0, 3):
-    #     if i != 1:
-    #         angle = -4.0 + i * 4.0
-    #         transformation = im.rotate(x_reshaped, axes=(1, 2), order=1, angle=angle, mode='constant', cval=-1,
-    #                                    reshape=False)
-    #         max_matrix = np.maximum(max_matrix, f(transformation.reshape((x_length, num_f)), y_matrix, var))
-
-    return max_matrix
+def view(arr):
+    trans = np.uint8((arr.reshape(20, 20) + 1) / 2.0 * 255)
+    img = Image.fromarray(trans, 'L')
+    img.show()
 
 
 train = pd.read_csv("../data/USPS_train.csv", delim_whitespace=True)
@@ -125,7 +53,8 @@ train_features = np.pad(train_features.reshape((7290, 16, 16)), ((0, 0), (2, 2),
 test_features = np.pad(test_features.reshape((2006, 16, 16)), ((0, 0), (2, 2), (2, 2)), 'constant',
                        constant_values=(-1)).reshape((2006, num_f))
 
-model = svm.SVC(kernel=jitter_kernel, cache_size=900)
+
+
 
 
 print("Training...")
@@ -146,6 +75,13 @@ b = s.rotate_SV(feat, 0, 5, 5)
 c = s.translate_SV(feat, transformations[0:1], 1, 1)
 d = s.translate_SV(feat, transformations[1:2], 1, 1)
 e = s.translate_SV(feat, transformations[2:3], 1, 1)
+print(test_features.shape)
+translated_test = s.translate_SV(test_features, transformations[2:3], 1, 1)
+test_features = np.vstack((test_features, translated_test))
+test_targets = np.append(test_targets, test_targets)
+
+print(translated_test.shape)
+print(test_features.shape)
 # f = s.translate_SV(feat, transformations[3:4], 1, 1)
 # g = s.translate_SV(feat, transformations[4:5], 2, 2)
 # h = s.translate_SV(feat, transformations[5:6], 2, 2)
@@ -154,17 +90,18 @@ e = s.translate_SV(feat, transformations[2:3], 1, 1)
 time2 = timer()
 print("Data transformed in:", time2-time1)
 
-a_svm = svm.SVC(cache_size=800)
-a_svm.fit(a, targ)
-b_svm = svm.SVC(cache_size=800)
-b_svm.fit(b, targ)
-c_svm = svm.SVC(cache_size=800)
-c_svm.fit(c, targ)
-d_svm = svm.SVC(cache_size=800)
-d_svm.fit(d, targ)
+og_svm = svm.SVC(cache_size=800)
+og_svm.fit(feat, targ)
+# a_svm = svm.SVC(cache_size=800)
+# a_svm.fit(a, targ)
+# b_svm = svm.SVC(cache_size=800)
+# b_svm.fit(b, targ)
+# c_svm = svm.SVC(cache_size=800)
+# c_svm.fit(c, targ)
+# d_svm = svm.SVC(cache_size=800)
+# d_svm.fit(d, targ)
 e_svm = svm.SVC(cache_size=800)
 e_svm.fit(e, targ)
-
 
 # f_svm = svm.SVC(cache_size=800)
 # f_svm.fit(f, targ)
@@ -180,13 +117,13 @@ time3 = timer()
 print("Other svm's trained in:", time3-time2)
 
 
-running = o_svm.decision_function(test_features)
-
-# running = np.maximum(running, a_svm.decision_function(test_features))
-# running = np.maximum(running, b_svm.decision_function(test_features))
-# running = np.maximum(running, c_svm.decision_function(test_features))
-# running = np.maximum(running, d_svm.decision_function(test_features))
-# running = np.maximum(running, e_svm.decision_function(test_features))
+# running = o_svm.decision_function(test_features)
+#
+# running = np.add(running, a_svm.decision_function(test_features))
+# running = np.add(running, b_svm.decision_function(test_features))
+# running = np.add(running, c_svm.decision_function(test_features))
+# running = np.add(running, d_svm.decision_function(test_features))
+# running = np.add(running, e_svm.decision_function(test_features))
 # 6.281000000000006
 
 # running = o_svm.predict(test_features).reshape(-1, 1)
@@ -201,10 +138,61 @@ running = o_svm.decision_function(test_features)
 # running = np.hstack((running, i_svm.predict(test_features).reshape(-1, 1)))
 # running = np.hstack((running, j_svm.predict(test_features).reshape(-1, 1)))
 
-predictions = np.argmax(running, axis=1)
+# predictions = np.argmax(running, axis=1)
+pred1 = og_svm.predict(test_features)
+pred2 = e_svm.predict(test_features)
+diff1 = pred1 - test_targets
+diff2 = pred2 - test_targets
+wrong1 = np.nonzero(diff1)
+wrong2 = np.nonzero(diff2)
+correct2 = np.where(diff2 == 0)[0]
 
-# modes = stats.mode(running, axis=1)
-print(100 - round(accuracy_score(test_targets, predictions) * 100, 3))
+indices = np.intersect1d(wrong1, correct2)
+
+probs_0 = og_svm.decision_function(test_features)
+probs_e = e_svm.decision_function(test_features)
+
+classes_0 = np.argmax(probs_0, axis=1)
+classes_e = np.argmax(probs_e, axis=1)
+
+max_0 = probs_0[np.arange(len(probs_0)), np.argmax(probs_0, axis=1)]
+max_e = probs_e[np.arange(len(probs_e)), np.argmax(probs_e, axis=1)]
+
+sum_0 = max_0 * np.sum(np.square(probs_0 - max_0.reshape(-1, 1)), axis=1)
+sum_e = max_e * np.sum(np.square(probs_e - max_e.reshape(-1, 1)), axis=1)
+
+vals = sum_0.reshape(-1, 1)
+vals = np.hstack((vals, sum_e.reshape(-1, 1)))
+
+classes = classes_0.reshape(-1, 1)
+classes = np.hstack((classes, classes_e.reshape(-1, 1)))
+
+pred3 = classes[np.arange(len(classes)), np.argmax(vals, axis=1)]
+
+
+
+# exit(0)
+
+
+
+
+
+# m = np.maximum(probs_0, probs_e)
+# classes = np.argmax(m, axis=1)
+print("Normal: ", accuracy_score(test_targets, pred1))
+print("Translated: ", accuracy_score(test_targets, pred2))
+print("Probs: ", accuracy_score(test_targets, pred3))
+
+print(probs_0[indices])
+pprint(pred1[indices])
+pprint(pred3[indices])
+pprint(test_targets[indices])
+pprint(pred2[indices])
+print(probs_e[indices])
+
+# try distances between highest point and others
+
+
 
 """
 VSV 19.507 seconds
@@ -261,3 +249,25 @@ WITH 2 PX PADDINGS
 0.9511465603190429 -> 0.9501495513459621 (first 1&2 Diagonals J, second 1&2 LR V)
 
 """
+
+
+# [[355   0   2   0   1   0   0   0   1   0]
+#  [  0 255   0   0   5   0   3   1   0   0]
+#  [  2   0 184   2   3   2   0   1   4   0]
+#  [  2   0   3 148   0   8   0   0   5   0]
+#  [  0   1   3   0 188   1   1   1   1   4]
+#  [  2   0   0   3   1 150   0   0   1   3]
+#  [  3   0   3   0   2   2 159   0   1   0]
+#  [  0   0   1   0   5   1   0 137   1   2]
+#  [  2   0   2   2   0   2   1   1 155   1]
+#  [  0   0   0   1   6   0   0   0   0 169]]
+# [[339   0   6   1   1   1   8   0   3   0]
+#  [  0 237   0   0   4   0  14   0   9   0]
+#  [  1   0 190   1   2   0   0   1   3   0]
+#  [  1   0  12 122   1  21   0   0   8   1]
+#  [  0   2   6   0 188   0   1   0   0   3]
+#  [  2   1   3   1   1 148   0   0   2   2]
+#  [  0   0   4   0   2   3 160   0   1   0]
+#  [  0   1   4   0   8   0   0 126   7   1]
+#  [  3   0   5   0   1   6   1   0 150   0]
+#  [  0   3   0   0  15   1   0   2  10 145]]
