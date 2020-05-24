@@ -10,6 +10,9 @@ from sklearn.metrics import confusion_matrix
 from timeit import default_timer as timer
 from sklearn.ensemble import RandomForestClassifier, VotingClassifier
 from sklearn.preprocessing import MinMaxScaler
+
+from src.EnsembleSVM import EnsembleSVM
+
 scaler = MinMaxScaler((0, 255))
 
 from src.SupportVectorMachine import SupportVectorMachine
@@ -31,14 +34,14 @@ def view(arr):
 train = pd.read_csv("../data/USPS_train.csv", delim_whitespace=True)
 test = pd.read_csv("../data/USPS_test.csv", delim_whitespace=True)
 
-transformations = [(1, 0),  # D
-                   (-1, 0),  # U
-                   (0, 1),  # R
-                   (0, -1),  # L
-                   (1, 1),  # RD
-                   (1, -1),  # LD
-                   (-1, 1),  # RU
-                   (-1, -1)]  # LU
+directions = [(1, 0),  # D
+              (-1, 0),  # U
+              (0, 1),  # R
+              (0, -1),  # L
+              (1, 1),  # RD
+              (1, -1),  # LD
+              (-1, 1),  # RU
+              (-1, -1)]  # LU
 
 train_features = train.iloc[:, 1:].to_numpy()
 train_targets = train.iloc[:, 0].to_numpy()
@@ -54,143 +57,18 @@ test_features = np.pad(test_features.reshape((2006, 16, 16)), ((0, 0), (2, 2), (
                        constant_values=(-1)).reshape((2006, num_f))
 
 
-
-
-
-print("Training...")
-
 start = timer()
-s = SupportVectorMachine(train_features, train_targets, test_features, test_targets)
 
-o_svm = svm.SVC(cache_size=800)
-o_svm.fit(train_features, train_targets)
-time1 = timer()
-print("First svm has been trained in:", time1-start)
+print("Ensemble training:")
+ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets)
+ensemble.add_rotation(-5, 5, 5)
+ensemble.add_translations(directions[0:4], 1, 1)
+ensemble.add_translations(directions[4:8], 2, 2)
 
-feat = train_features[o_svm.support_]
-targ = train_targets[o_svm.support_]
+end = timer()
 
-a = s.rotate_SV(feat, -5, 0, 5)
-b = s.rotate_SV(feat, 0, 5, 5)
-c = s.translate_SV(feat, transformations[0:1], 1, 1)
-d = s.translate_SV(feat, transformations[1:2], 1, 1)
-e = s.translate_SV(feat, transformations[2:3], 1, 1)
-print(test_features.shape)
-translated_test = s.translate_SV(test_features, transformations[2:3], 1, 1)
-test_features = np.vstack((test_features, translated_test))
-test_targets = np.append(test_targets, test_targets)
-
-print(translated_test.shape)
-print(test_features.shape)
-# f = s.translate_SV(feat, transformations[3:4], 1, 1)
-# g = s.translate_SV(feat, transformations[4:5], 2, 2)
-# h = s.translate_SV(feat, transformations[5:6], 2, 2)
-# i = s.translate_SV(feat, transformations[6:7], 2, 2)
-# j = s.translate_SV(feat, transformations[7:8], 2, 2)
-time2 = timer()
-print("Data transformed in:", time2-time1)
-
-og_svm = svm.SVC(cache_size=800)
-og_svm.fit(feat, targ)
-# a_svm = svm.SVC(cache_size=800)
-# a_svm.fit(a, targ)
-# b_svm = svm.SVC(cache_size=800)
-# b_svm.fit(b, targ)
-# c_svm = svm.SVC(cache_size=800)
-# c_svm.fit(c, targ)
-# d_svm = svm.SVC(cache_size=800)
-# d_svm.fit(d, targ)
-e_svm = svm.SVC(cache_size=800)
-e_svm.fit(e, targ)
-
-# f_svm = svm.SVC(cache_size=800)
-# f_svm.fit(f, targ)
-# g_svm = svm.SVC(cache_size=800)
-# g_svm.fit(g, targ)
-# h_svm = svm.SVC(cache_size=800)
-# h_svm.fit(h, targ)
-# i_svm = svm.SVC(cache_size=800)
-# i_svm.fit(i, targ)
-# j_svm = svm.SVC(cache_size=800)
-# j_svm.fit(j, targ)
-time3 = timer()
-print("Other svm's trained in:", time3-time2)
-
-
-# running = o_svm.decision_function(test_features)
-#
-# running = np.add(running, a_svm.decision_function(test_features))
-# running = np.add(running, b_svm.decision_function(test_features))
-# running = np.add(running, c_svm.decision_function(test_features))
-# running = np.add(running, d_svm.decision_function(test_features))
-# running = np.add(running, e_svm.decision_function(test_features))
-# 6.281000000000006
-
-# running = o_svm.predict(test_features).reshape(-1, 1)
-# running = np.hstack((running, a_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, b_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, c_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, d_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, e_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, f_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, g_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, h_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, i_svm.predict(test_features).reshape(-1, 1)))
-# running = np.hstack((running, j_svm.predict(test_features).reshape(-1, 1)))
-
-# predictions = np.argmax(running, axis=1)
-pred1 = og_svm.predict(test_features)
-pred2 = e_svm.predict(test_features)
-diff1 = pred1 - test_targets
-diff2 = pred2 - test_targets
-wrong1 = np.nonzero(diff1)
-wrong2 = np.nonzero(diff2)
-correct2 = np.where(diff2 == 0)[0]
-
-indices = np.intersect1d(wrong1, correct2)
-
-probs_0 = og_svm.decision_function(test_features)
-probs_e = e_svm.decision_function(test_features)
-
-classes_0 = np.argmax(probs_0, axis=1)
-classes_e = np.argmax(probs_e, axis=1)
-
-max_0 = probs_0[np.arange(len(probs_0)), np.argmax(probs_0, axis=1)]
-max_e = probs_e[np.arange(len(probs_e)), np.argmax(probs_e, axis=1)]
-
-sum_0 = max_0 * np.sum(np.square(probs_0 - max_0.reshape(-1, 1)), axis=1)
-sum_e = max_e * np.sum(np.square(probs_e - max_e.reshape(-1, 1)), axis=1)
-
-vals = sum_0.reshape(-1, 1)
-vals = np.hstack((vals, sum_e.reshape(-1, 1)))
-
-classes = classes_0.reshape(-1, 1)
-classes = np.hstack((classes, classes_e.reshape(-1, 1)))
-
-pred3 = classes[np.arange(len(classes)), np.argmax(vals, axis=1)]
-
-
-
-# exit(0)
-
-
-
-
-
-# m = np.maximum(probs_0, probs_e)
-# classes = np.argmax(m, axis=1)
-print("Normal: ", accuracy_score(test_targets, pred1))
-print("Translated: ", accuracy_score(test_targets, pred2))
-print("Probs: ", accuracy_score(test_targets, pred3))
-
-print(probs_0[indices])
-pprint(pred1[indices])
-pprint(pred3[indices])
-pprint(test_targets[indices])
-pprint(pred2[indices])
-print(probs_e[indices])
-
-# try distances between highest point and others
+print(f"Error: {ensemble.error()}")
+print(f"Duration: {end-start} seconds")
 
 
 
