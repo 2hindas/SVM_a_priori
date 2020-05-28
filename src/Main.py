@@ -71,7 +71,7 @@ print(f"Error: {ensemble.error()}")
 print(f"Duration: {end-start} seconds")
 
 
-
+# 3 classifiers: (-5, 5, 5), directions[0:4], 1, 1 & directions[4:8], 2, 2 -> 4.00
 """
 VSV 19.507 seconds
 Virtual Features 36.627 seconds
