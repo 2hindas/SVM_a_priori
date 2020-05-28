@@ -58,12 +58,22 @@ test_features = np.pad(test_features.reshape((2006, 16, 16)), ((0, 0), (2, 2), (
 
 
 start = timer()
+# 5.28 is basic error
+
 
 print("Ensemble training:")
 ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets)
 ensemble.add_rotation(-5, 5, 5)
-ensemble.add_translations(directions[0:4], 1, 1)
-ensemble.add_translations(directions[4:8], 2, 2)
+ensemble.add_translations(directions[0:2], 1, 1)
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1)
+ensemble.add_translations(directions[5:6], 1, 1)
+ensemble.add_translations(directions[7:8], 1, 1)
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1)
+ensemble.add_translations(directions[4:5], 1, 1)
+ensemble.add_translations(directions[6:7], 1, 1)
+ensemble.train()
 
 end = timer()
 
