@@ -1,3 +1,4 @@
+RBF, C=1
 ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets)
 ensemble.add_rotation(-5, 5, 5)
 ensemble.add_translations(directions[0:2], 1, 1)
@@ -18,7 +19,70 @@ Error: 4.19
 Duration: 60.263368299 seconds
 
 
+RBF, C=10,
+ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets)
+ensemble.add_rotation(-5, 5, 5, True)
+ensemble.add_translations(directions[0:2], 1, 1) #UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1) #L
+ensemble.add_translations(directions[3:4], 2, 2) #L
+ensemble.add_translations(directions[5:6], 1, 1) #LD
+ensemble.add_translations(directions[7:8], 1, 1) #LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1) #R
+ensemble.add_translations(directions[2:3], 2, 2) #R
+ensemble.add_translations(directions[4:5], 1, 1) #RD
+ensemble.add_translations(directions[6:7], 1, 1) #RU
+ensemble.train()
+
+3.84
+3.79
+4.04
+3.84
+
+73.982677842 seconds
 
 
+ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets)
+ensemble.add_rotation(-5, 5, 5)
+ensemble.train(True)
+ensemble.add_translations(directions[0:2], 1, 1) #UD
+ensemble.add_translations(directions[0:2], 2, 2) #UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1) #L
+ensemble.add_translations(directions[3:4], 2, 2) #L
+ensemble.add_translations(directions[5:6], 1, 1) #LD
+ensemble.add_translations(directions[7:8], 1, 1) #LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1) #R
+ensemble.add_translations(directions[2:3], 2, 2) #R
+ensemble.add_translations(directions[4:5], 1, 1) #RD
+ensemble.add_translations(directions[6:7], 1, 1) #RU
+ensemble.train()
+0.9526420737786641
+3.84
+3.84
+3.69
+3.69
+Error: None
+Duration: 176.125383423 seconds
 
 
+ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets)
+ensemble.add_rotation(-5, 5, 5)
+ensemble.train(True)
+ensemble.add_translations(directions[0:2], 1, 1) #UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1) #L
+ensemble.add_translations(directions[5:6], 1, 1) #LD
+ensemble.add_translations(directions[7:8], 1, 1) #LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1) #R
+ensemble.add_translations(directions[4:5], 1, 1) #RD
+ensemble.add_translations(directions[6:7], 1, 1) #RU
+ensemble.train()
+0.9526420737786641
+3.54
+3.79
+3.39
+3.54

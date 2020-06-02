@@ -17,9 +17,11 @@ class EnsembleSVM:
         self.num_features = self.features.shape[1]
         self.sqrt_features = int(np.sqrt(self.num_features))
         self.models = []
-        self.original_model = svm.SVC(kernel='rbf', cache_size=1000, C=1)
+        self.original_model = svm.SVC(kernel='rbf', cache_size=1000, C=10)
 
         self.original_model.fit(train_features, train_targets)
+
+        print(accuracy_score(test_targets, self.original_model.predict(test_features)))
         self.support_vectors = train_features[self.original_model.support_]
         self.support_vector_targets = train_targets[self.original_model.support_]
         self.support_vector_targets = self.support_vector_targets
@@ -30,36 +32,64 @@ class EnsembleSVM:
         # model.fit(self.support_vectors, self.support_vector_targets)
         # self.models.append(self.original_model)
 
-    def train(self):
-        model = svm.SVC(kernel='rbf', cache_size=1000, C=1)
+    def train(self, replace=False):
+        model = svm.SVC(kernel='rbf', cache_size=1000, C=10)
         model.fit(self.feat, self.targ)
         self.models.append(model)
+        if replace:
+            self.support_vectors = self.feat[model.support_]
+            self.support_vector_targets = self.targ[model.support_]
         self.feat = self.support_vectors
         self.targ = self.support_vector_targets
 
-    def add_translations(self, directions, min_trans, max_trans):
-        for d in directions:
-            for i in range(min_trans, max_trans + 1):
+    def add_translations(self, directions, min_trans, max_trans, extend=False):
+        if not extend:
+            for d in directions:
+                for i in range(min_trans, max_trans + 1):
+                    num_sv = len(self.support_vectors)
+                    transformation = im.shift(
+                        self.support_vectors.reshape(
+                            (num_sv, self.sqrt_features, self.sqrt_features)),
+                        (0, d[0] * i, d[1] * i), mode='constant', cval=-1)
+                    translated_features = transformation.reshape((num_sv, self.num_features))
+                    self.targ = np.append(self.targ, self.support_vector_targets)
+                    self.feat = np.vstack((translated_features, self.feat))
+        else:
+            for d in directions:
+                for i in range(min_trans, max_trans + 1):
+                    num_sv = len(self.feat)
+                    transformation = im.shift(
+                        self.feat.reshape((num_sv, self.sqrt_features, self.sqrt_features)),
+                        (0, d[0] * i, d[1] * i), mode='constant', cval=-1)
+                    translated_features = transformation.reshape((num_sv, self.num_features))
+                    self.targ = np.append(self.targ, self.targ)
+                    self.feat = np.vstack((translated_features, self.feat))
+
+    def add_rotation(self, min_degrees, max_degrees, step_size, extend=False):
+        if not extend:
+            for angle in range(min_degrees, max_degrees + 1, step_size):
+                if angle == 0:
+                    continue
                 num_sv = len(self.support_vectors)
-                transformation = im.shift(
+                transformation = im.rotate(
                     self.support_vectors.reshape((num_sv, self.sqrt_features, self.sqrt_features)),
-                    (0, d[0] * i, d[1] * i), mode='constant', cval=-1)
+                    axes=(1, 2), order=1, angle=angle,
+                    mode='constant', cval=-1, reshape=False)
                 translated_features = transformation.reshape((num_sv, self.num_features))
                 self.targ = np.append(self.targ, self.support_vector_targets)
                 self.feat = np.vstack((translated_features, self.feat))
-
-    def add_rotation(self, min_degrees, max_degrees, step_size):
-        for angle in range(min_degrees, max_degrees + 1, step_size):
-            if angle == 0:
-                continue
-            num_sv = len(self.support_vectors)
-            transformation = im.rotate(
-                self.support_vectors.reshape((num_sv, self.sqrt_features, self.sqrt_features)),
-                axes=(1, 2), order=1, angle=angle,
-                mode='constant', cval=-1, reshape=False)
-            translated_features = transformation.reshape((num_sv, self.num_features))
-            self.targ = np.append(self.targ, self.support_vector_targets)
-            self.feat = np.vstack((translated_features, self.feat))
+        else:
+            for angle in range(min_degrees, max_degrees + 1, step_size):
+                if angle == 0:
+                    continue
+                num_sv = len(self.feat)
+                transformation = im.rotate(
+                    self.feat.reshape((num_sv, self.sqrt_features, self.sqrt_features)),
+                    axes=(1, 2), order=1, angle=angle,
+                    mode='constant', cval=-1, reshape=False)
+                translated_features = transformation.reshape((num_sv, self.num_features))
+                self.targ = np.append(self.targ, self.targ)
+                self.feat = np.vstack((translated_features, self.feat))
 
     def predict(self, X):
 
@@ -84,7 +114,8 @@ class EnsembleSVM:
                 ensemble_classes = np.hstack((ensemble_classes, classes.reshape(-1, 1)))
 
             max_margins = margins[np.arange(len(classes)), classes]
-            distances = max_margins * np.sum(np.square(margins - max_margins.reshape(-1, 1)), axis=1)
+            distances = max_margins * np.sum(np.square(margins - max_margins.reshape(-1, 1)),
+                                             axis=1)
             if vals is None:
                 vals = distances.reshape(-1, 1)
             else:
@@ -100,7 +131,9 @@ class EnsembleSVM:
         # return np.argmax(margin_total, axis=1) # 4.89
         # return ensemble_classes[np.arange(len(ensemble_classes)), np.argmax(vals, axis=1)] # 4.79
         # return np.argmax(distance_mask, axis=1)
-        return mode(ensemble_classes, axis=1)[0], np.argmax(margin_total, axis=1), ensemble_classes[np.arange(len(ensemble_classes)), np.argmax(vals, axis=1)], np.argmax(distance_mask, axis=1)
+        return mode(ensemble_classes, axis=1)[0], np.argmax(margin_total, axis=1), ensemble_classes[
+            np.arange(len(ensemble_classes)), np.argmax(vals, axis=1)], np.argmax(distance_mask,
+                                                                                  axis=1)
 
     def error(self, X=None):
         if X is None:
@@ -114,8 +147,3 @@ class EnsembleSVM:
             # return np.round(100 - 100 * accuracy_score(self.test_targets, self.predict(self.test_features)), 2)
         else:
             return np.round(100 - 100 * accuracy_score(self.test_targets, self.predict(X)), 2)
-
-
-
-
-
