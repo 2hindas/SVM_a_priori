@@ -43,6 +43,60 @@ ensemble.train()
 73.982677842 seconds
 
 
+
+ensemble.add_rotation(-5, 5, 5)
+ensemble.train(True)
+ensemble.add_translations(directions[0:2], 1, 1)  # UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+Ensemble training, C = 1.0
+0.9471585244267199
+Support Vectors: 2251
+Training set size: 6753
+Training set size: 12708
+Training set size: 16944
+Training set size: 16944
+4.24
+4.04
+4.09
+3.94
+Error: None
+Duration: 197.313106555 seconds
+
+
+ensemble.add_rotation(-5, 5, 5)
+ensemble.add_translations(directions[0:2], 1, 1)  # UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+Ensemble training, C = 10
+0.9526420737786641
+Support Vectors: 2131
+Training set size: 10655
+Training set size: 8524
+Training set size: 8524
+3.99
+3.94
+3.89
+3.99
+Error: None
+Duration: 73.36168849700005 seconds
+
+
+
 ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets)
 ensemble.add_rotation(-5, 5, 5)
 ensemble.train(True)
@@ -86,3 +140,233 @@ ensemble.train()
 3.79
 3.39
 3.54
+
+MNIST SMALL
+
+ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets, 1)
+ensemble.add_rotation(-5, 5, 5)
+ensemble.train(True)
+ensemble.add_translations(directions[0:2], 1, 1)  # UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+Ensemble training, C = 1
+0.9883
+0.07
+0.08
+0.13
+0.08
+Error: None
+Duration: 1170.9125679929998 seconds
+
+
+
+ensemble.add_rotation(-5, 5, 5)
+ensemble.add_translations(directions[0:2], 1, 1)  # UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+
+Ensemble training, C = 1
+1.17
+Support Vectors: 3763
+Training set size: 18815
+Training set size: 15052
+Training set size: 15052
+0.23
+0.26
+0.39
+0.21
+Error: None
+Duration: 498.98131894700055 seconds
+
+
+
+
+ensemble.add_rotation(-5, 5, 5)
+ensemble.add_translations(directions[0:2], 1, 1)  # UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+
+
+Ensemble training, C = 10
+accuracy = 1.0
+Support Vectors: 3606
+Training set size: 18030
+Training set size: 14424
+Training set size: 14424
+0.0
+0.0
+0.0
+0.0
+Error: None
+Duration: 435.3451183669995 seconds
+
+
+ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets, 1)
+ensemble.add_rotation(-5, 5, 5)
+ensemble.train(True) # REPLACE TRUE
+ensemble.add_translations(directions[0:1], 1, 1)  # UD
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+ensemble.add_translations(directions[1:2], 1, 1)  # UD
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+
+Data has been read
+Ensemble training, C = 1
+0.9883
+Support Vectors: 3763
+Training set size: 11289
+Training set size: 36610
+Training set size: 36610
+0.05
+0.05
+0.12
+0.05
+Error: None
+Duration: 1270.0748916430002 seconds
+
+
+ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets, 1)
+ensemble.add_rotation(-5, 5, 5)
+ensemble.train(True)
+ensemble.add_translations(directions[0:1], 1, 1)  # D
+ensemble.add_translations(directions[1:2], 1, 1)  # U
+ensemble.train()
+
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+Ensemble training, C = 1
+0.9883
+Support Vectors: 3763
+Training set size: 11289
+Training set size: 21966
+Training set size: 29288
+Training set size: 29288
+0.07
+0.08
+0.13
+0.08
+Error: None
+Duration: 1179.287568818001 seconds
+
+
+MNIST GROOT
+
+
+ensemble = EnsembleSVM(train_features, train_targets, test_features, test_targets, 10)
+ensemble.add_rotation(-5, 5, 5)
+# ensemble.train(True)
+ensemble.add_translations(directions[0:1], 1, 1)  # D
+ensemble.add_translations(directions[1:2], 1, 1)  # U
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+
+Ensemble training, C = 1
+0.9793
+Support Vectors: 12336
+Training set size: 61680
+Training set size: 49344
+Training set size: 49344
+1.14
+1.22
+1.21
+1.14
+Error: None
+Duration: 4639.730487337998 seconds
+
+
+Ensemble training, C = 10
+0.9838
+Support Vectors: 11702
+Training set size: 58510
+Training set size: 46808
+Training set size: 46808
+0.96
+0.99
+1.0
+0.92
+Error: None
+Duration: 3823.3558918510025 seconds
+
+
+
+ensemble.add_rotation(-5, 5, 5)
+ensemble.train(True)
+ensemble.add_translations(directions[0:2], 1, 1)  # UD
+ensemble.train()
+ensemble.add_translations(directions[3:4], 1, 1)  # L
+ensemble.add_translations(directions[5:6], 1, 1)  # LD
+ensemble.add_translations(directions[7:8], 1, 1)  # LU
+ensemble.train()
+ensemble.add_translations(directions[2:3], 1, 1)  # R
+ensemble.add_translations(directions[4:5], 1, 1)  # RD
+ensemble.add_translations(directions[6:7], 1, 1)  # RU
+ensemble.train()
+Ensemble training, C = 1
+0.9793
+Support Vectors: 12336
+Training set size: 37008
+Training set size: 71145
+Training set size: 94860
+Training set size: 94860
+1.08
+1.14
+1.0
+1.04
+Error: None
+Duration: 10981.303646949 seconds
+
+
+Ensemble training, C = 10
+0.9838
+Support Vectors: 11702
+Training set size: 35106
+Training set size: 58464
+Training set size: 77952
+Training set size: 77952
+1.01
+0.99
+1.03
+1.0
+Error: None
+Duration: 6767.734113931001 seconds
+
