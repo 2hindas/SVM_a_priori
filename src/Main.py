@@ -13,6 +13,7 @@ scaler = MinMaxScaler((-1, 1))
 pd.set_option('display.width', 320)
 np.set_printoptions(linewidth=320)
 
+
 dataset = "USPS"
 C = 10
 
@@ -39,8 +40,7 @@ directions = [(1, 0),  # D
 
 start = timer()
 
-print("Ensemble training, C = 1")
-ensemble = EnsembleSVM(None, None, test_features, test_labels, 10, support_vectors, support_vector_labels)
+ensemble = EnsembleSVM(train_features, train_labels, test_features, test_labels, 10, support_vectors, support_vector_labels)
 ensemble.add_rotation(-5, 5, 5)
 ensemble.add_translations(directions[0:2], 1, 1)  # UD
 ensemble.add_translations(directions[3:4], 1, 1)  # L
@@ -49,7 +49,7 @@ ensemble.add_translations(directions[7:8], 1, 1)  # LU
 ensemble.add_translations(directions[2:3], 1, 1)  # R
 ensemble.add_translations(directions[4:5], 1, 1)  # RD
 ensemble.add_translations(directions[6:7], 1, 1)  # RU
-ensemble.train_pasting(0.3, 5)
+ensemble.train_pasting(500, 50)
 
 end = timer()
 
