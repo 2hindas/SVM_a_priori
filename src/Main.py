@@ -3,7 +3,7 @@ from timeit import default_timer as timer
 import numpy as np
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
-from mnist import MNIST
+
 
 from src.EnsembleSVM import EnsembleSVM
 
@@ -12,14 +12,7 @@ scaler = MinMaxScaler((-1, 1))
 pd.set_option('display.width', 320)
 np.set_printoptions(linewidth=320)
 
-mndata = MNIST('/content')
 
-train_features, train_targets = mndata.load_training()
-test_features, test_targets = mndata.load_testing()
-train_features = scaler.fit_transform(np.asarray(train_features))
-test_features = scaler.fit_transform(np.asarray(test_features))
-train_targets = np.asarray(train_targets)
-test_targets = np.asarray(test_targets)
 
 
 
