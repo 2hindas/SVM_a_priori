@@ -7,6 +7,7 @@ import hickle as hkl
 
 from src.EnsembleSVM import EnsembleSVM
 
+
 scaler = MinMaxScaler((-1, 1))
 
 pd.set_option('display.width', 320)
