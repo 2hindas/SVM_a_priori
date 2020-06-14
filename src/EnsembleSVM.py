@@ -1,3 +1,5 @@
+import random
+
 import numpy as np
 from sklearn import svm
 import scipy.ndimage as im
@@ -9,7 +11,6 @@ class EnsembleSVM:
 
     def __init__(self, train_features, train_labels, test_features, test_labels, constant,
                  support_vectors=None, support_labels=None):
-
         self.features = train_features
         self.labels = train_labels
         self.test_features = test_features
@@ -17,9 +18,10 @@ class EnsembleSVM:
         self.num_features = test_features.shape[1]
         self.sqrt_features = int(np.sqrt(self.num_features))
         self.models = []
+        self.model_sets = []
         self.C = constant
-
         if support_vectors is None:
+
             self.original_model = svm.SVC(kernel='rbf', cache_size=5000, C=constant)
             self.original_model.fit(self.features, self.labels)
             print(accuracy_score(test_labels, self.original_model.predict(test_features)))
@@ -32,6 +34,8 @@ class EnsembleSVM:
         self.feat = self.support_vectors
         self.targ = self.support_vector_labels
 
+        # print(f"Support Vectors: {len(self.feat)}")
+
     def train(self, replace=False):
         model = svm.SVC(kernel='rbf', cache_size=5000, C=self.C)
         print(f"Training set size: {len(self.feat)}")
@@ -39,7 +43,7 @@ class EnsembleSVM:
         self.models.append(model)
         if replace:
             self.support_vectors = self.feat[model.support_]
-            self.support_vector_labels = self.targ[model.support_]
+            self.support_vector_targets = self.targ[model.support_]
         self.feat = self.support_vectors
         self.targ = self.support_vector_labels
 
@@ -68,32 +72,50 @@ class EnsembleSVM:
             self.targ = np.append(self.targ, self.support_vector_labels)
             self.feat = np.vstack((translated_features, self.feat))
 
-    def predict(self, X):
-        class_votes = None
+    def predict(self, X, models=None):
 
-        for model in self.models:
-            class_predictions = model.predict(X)
-            if class_votes is None:
-                class_votes = class_predictions.reshape(-1, 1)
+        vals = None
+        ensemble_classes = None
+        margin_total = None
+        distance_mask = None
+
+        if models is None:
+            m = self.models
+        else:
+            m = models
+
+        for model in m:
+
+            margins = model.decision_function(X)
+            classes = np.argmax(margins, axis=1)
+
+            if ensemble_classes is None:
+                ensemble_classes = classes.reshape(-1, 1)
             else:
-                class_votes = np.hstack((class_votes, class_predictions.reshape(-1, 1)))
+                ensemble_classes = np.hstack((ensemble_classes, classes.reshape(-1, 1)))
 
-        majority_votes = mode(class_votes, axis=1)[0]
-        return majority_votes
+        return mode(ensemble_classes, axis=1)[0]
 
     def error(self):
-        majority_votes = self.predict(self.test_features)
-        return np.round(100 - 100 * accuracy_score(self.test_labels, majority_votes), 4)
+        a = self.predict(self.test_features)
+        return np.round(100 - 100 * accuracy_score(self.test_labels, a), 4)
+
+    def print_error(self, X=None):
+        if X is None:
+            a= self.predict(self.test_features)
+            print(np.round(100 - 100 * accuracy_score(self.test_labels, a), 4))
+        else:
+            return np.round(100 - 100 * accuracy_score(self.test_labels, self.predict(X)), 2)
 
     def train_random_partitions(self, ratio, num_machines):
-        num_examples = len(self.feat)
-        indices = np.arange(num_examples)
-        sample_size = int(num_examples * ratio)
+        indices = np.asarray(range(len(self.feat)))
+        sample_size = int(len(self.feat) * ratio)
 
         for i in range(num_machines):
-            if i == num_machines - 1 or sample_size > indices.shape[0]:
+            if i == num_machines - 1 or sample_size > indices.shape[
+                0]:  # Remove i == if not doing 1/x and x.
                 sample_indices = indices
-                indices = np.arange(num_examples)
+                indices = np.asarray(range(len(self.feat)))
             else:
                 sample_indices = np.random.choice(indices, sample_size, replace=False)
                 indices = np.setdiff1d(indices, sample_indices)
@@ -104,4 +126,3 @@ class EnsembleSVM:
             model = svm.SVC(kernel='rbf', cache_size=5000, C=self.C)
             model.fit(sample_feat, sample_labels)
             self.models.append(model)
-

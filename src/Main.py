@@ -39,14 +39,12 @@ directions = [(1, 0),  # D
 errors = []
 times = []
 
-np.random.seed(0)
+np.random.seed(10)
 
-for k in range(3, 10):
+for k in range(2, 9):
     print(f"Number of divisions: {k}")
 
     for i in range(1, 11):
-
-        start = timer()
 
         ensemble = EnsembleSVM(train_features, train_labels, test_features, test_labels, 10, support_vectors=support_vectors, support_labels=support_vector_labels)
         ensemble.add_rotation(-6, 6, 2)
@@ -61,10 +59,12 @@ for k in range(3, 10):
 
         print(f"Run {i}")
 
+        start = timer()
         ensemble.train_random_partitions(1 / k, k)
         end = timer()
-        errors.append(ensemble.error())
 
+        errors.append(ensemble.error())
+        print(errors)
         times.append(np.round(end - start, 4))
 
     print(f'times_{k} = {times}')
@@ -74,10 +74,3 @@ for k in range(3, 10):
 
     errors.clear()
     times.clear()
-
-
-
-
-
-
-
