@@ -16,13 +16,13 @@ np.set_printoptions(linewidth=320)
 dataset = "USPS"
 C = 10
 
-support_vectors = hkl.load(f'/content/{dataset}_{str(C)}_SV_features.hkl')
-support_vector_labels = hkl.load(f'/content/{dataset}_{str(C)}_SV_labels.hkl')
+support_vectors = hkl.load(f'../data/{dataset}_{str(C)}_SV_features.hkl')
+support_vector_labels = hkl.load(f'../data/{dataset}_{str(C)}_SV_labels.hkl')
 
-train_features = hkl.load(f'/content/{dataset}_train_features.hkl')
-train_labels = hkl.load(f'/content/{dataset}_train_labels.hkl')
-test_features = hkl.load(f'/content/{dataset}_test_features.hkl')
-test_labels = hkl.load(f'/content/{dataset}_test_labels.hkl')
+train_features = hkl.load(f'../data/{dataset}_train_features.hkl')
+train_labels = hkl.load(f'../data/{dataset}_train_labels.hkl')
+test_features = hkl.load(f'../data/{dataset}_test_features.hkl')
+test_labels = hkl.load(f'../data/{dataset}_test_labels.hkl')
 
 print("Data set loaded in memory.")
 
@@ -60,7 +60,7 @@ for k in range(2, 9):
         print(f"Run {i}")
 
         start = timer()
-        ensemble.train_random_partitions(1 / k, k)
+        ensemble.train_random_partitions(1 / 1, 1)
         end = timer()
 
         errors.append(ensemble.error())

@@ -43,7 +43,7 @@ class EnsembleSVM:
         self.models.append(model)
         if replace:
             self.support_vectors = self.feat[model.support_]
-            self.support_vector_targets = self.targ[model.support_]
+            self.support_vector_labels = self.targ[model.support_]
         self.feat = self.support_vectors
         self.targ = self.support_vector_labels
 
@@ -102,18 +102,21 @@ class EnsembleSVM:
 
     def print_error(self, X=None):
         if X is None:
-            a= self.predict(self.test_features)
+            a = self.predict(self.test_features)
             print(np.round(100 - 100 * accuracy_score(self.test_labels, a), 4))
         else:
             return np.round(100 - 100 * accuracy_score(self.test_labels, self.predict(X)), 2)
 
     def train_random_partitions(self, ratio, num_machines):
+        num_SV = len(self.support_vectors)
+        self.feat = self.feat[num_SV:]
+        self.targ = self.targ[num_SV:]
+
         indices = np.asarray(range(len(self.feat)))
         sample_size = int(len(self.feat) * ratio)
 
         for i in range(num_machines):
-            if i == num_machines - 1 or sample_size > indices.shape[
-                0]:  # Remove i == if not doing 1/x and x.
+            if i == num_machines - 1 or sample_size > indices.shape[0]:  # Remove i == if not doing 1/x and x.
                 sample_indices = indices
                 indices = np.asarray(range(len(self.feat)))
             else:
@@ -122,6 +125,9 @@ class EnsembleSVM:
 
             sample_feat = self.feat[sample_indices]
             sample_labels = self.targ[sample_indices]
+
+            sample_feat = np.vstack((sample_feat, self.support_vectors))
+            sample_labels = np.append(sample_labels, self.support_vector_labels)
 
             model = svm.SVC(kernel='rbf', cache_size=5000, C=self.C)
             model.fit(sample_feat, sample_labels)
