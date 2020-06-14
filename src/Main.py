@@ -16,16 +16,15 @@ np.set_printoptions(linewidth=320)
 dataset = "USPS"
 C = 10
 
-support_vectors = hkl.load(f'../data/{dataset}_{str(C)}_SV_features.hkl')
-support_vector_labels = hkl.load(f'../data/{dataset}_{str(C)}_SV_labels.hkl')
+support_vectors = hkl.load(f'/content/{dataset}_{str(C)}_SV_features.hkl')
+support_vector_labels = hkl.load(f'/content/{dataset}_{str(C)}_SV_labels.hkl')
 
-train_features = hkl.load(f'../data/{dataset}_train_features.hkl')
-train_labels = hkl.load(f'../data/{dataset}_train_labels.hkl')
-test_features = hkl.load(f'../data/{dataset}_test_features.hkl')
-test_labels = hkl.load(f'../data/{dataset}_test_labels.hkl')
+train_features = hkl.load(f'/content/{dataset}_train_features.hkl')
+train_labels = hkl.load(f'/content/{dataset}_train_labels.hkl')
+test_features = hkl.load(f'/content/{dataset}_test_features.hkl')
+test_labels = hkl.load(f'/content/{dataset}_test_labels.hkl')
 
 print("Data set loaded in memory.")
-
 
 directions = [(1, 0),  # D
               (-1, 0),  # U
@@ -36,27 +35,16 @@ directions = [(1, 0),  # D
               (-1, 1),  # RU
               (-1, -1)]  # LU
 
-# ensemble.train_R_votes(0.34, 1) # 3.94 32s
-# ensemble.train_R_votes(0.34, 2) # 3.64 50s
-# ensemble.train_R_votes(0.34, 3) # 3.59 | 3.74 | 3.54 | 3.54 85s
-# ensemble.train_R_votes(0.34, 4) # 3.69 113s
-# ensemble.train_R_votes(0.34, 5) # 3.49 | 3.74 143s
-# ensemble.train_R_votes(0.34, 6) # 3.69 | 3.64 165s
-# ensemble.train_R_votes(0.34, 7) # 3.69 165s
 
-accuracies_a = []
-accuracies_b = []
-accuracies_c = []
-accuracies_d = []
-
+errors = []
 times = []
 
-for k in range(2, 6):
-    if k == 3:
-        continue
+np.random.seed(0)
+
+for k in range(3, 10):
     print(f"Number of divisions: {k}")
 
-    for i in range(1, 13):
+    for i in range(1, 11):
 
         start = timer()
 
@@ -70,34 +58,23 @@ for k in range(2, 6):
         ensemble.add_translations(directions[4:5], 1, 1)  # RD
         ensemble.add_translations(directions[6:7], 1, 1)  # RU
         ensemble.add_translations(directions[0:1], 1, 1)  # D
+
         print(f"Run {i}")
-        ensemble.train_R_votes(1/k, k)
+
+        ensemble.train_random_partitions(1 / k, k)
         end = timer()
-        a, b, c, d = ensemble.error()
-        accuracies_a.append(a)
-        accuracies_b.append(b)
-        accuracies_c.append(c)
-        accuracies_d.append(d)
+        errors.append(ensemble.error())
+
         times.append(np.round(end - start, 4))
 
-    print(times)
-    print(accuracies_a)
-    print(accuracies_b)
-    print(accuracies_c)
-    print(accuracies_d)
-
-    print(np.mean(sorted(accuracies_a)[:10]))
-    print(np.mean(sorted(accuracies_b)[:10]))
-    print(np.mean(sorted(accuracies_c)[:10]))
-    print(np.mean(sorted(accuracies_d)[:10]))
-
-    accuracies_a = []
-    accuracies_b = []
-    accuracies_c = []
-    accuracies_d = []
-    times = []
-
+    print(f'times_{k} = {times}')
+    print(f'errors_{k} = {errors}')
+    print(f'mean_error_{k} = {np.mean(errors)}')
     print()
+
+    errors.clear()
+    times.clear()
+
 
 
 
