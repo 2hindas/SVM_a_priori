@@ -1,0 +1,169 @@
+
+
+## Experiments
+
+
+
+#### How does the number of machines affect the performance of the ensemble?
+
+
+
+1 machine
+
+```python
+e = [3.0409, 3.0409, 3.0409, 3.0409, 3.0409, 3.0409, 3.0409, 3.0409, 3.0409, 3.0409, 3.0409, 3.0409] * 4
+t = [131.7033, 132.2467, 131.0693, 130.8953, 130.99, 130.9401, 134.2763, 135.2952, 135.0455, 137.5707, 138.4344, 138.442]
+```
+
+2 machines
+
+```python
+e = [3.5892, 3.6391, 3.4895, 3.4397, 3.6391, 3.6391, 3.4895, 3.5892, 3.2901, 3.1406, 3.2901, 3.4895]
+e2 = [3.34, 3.5394, 3.5394, 3.4895, 3.4895, 3.6391, 3.2403, 3.5892, 3.5394, 3.4895, 3.3898, 3.4397]
+t = [104.7408, 104.3827, 104.2331, 105.5216, 105.4213, 105.5073, 105.4762, 106.0643, 105.6314, 105.9786, 105.5897, 105.1523]
+```
+
+3 machines
+
+```python
+e = [3.6391, 3.6391, 3.5394, 3.5892, 3.5394, 3.34, 3.7388, 3.4895, 3.8385, 3.7886, 3.4895, 3.8385]
+e2 = [3.5394, 3.5892, 3.6391, 3.8385, 3.3898, 3.7388, 3.6391, 3.8883, 3.5394, 3.6889, 3.5394, 3.7388]
+t = [85.9378, 86.1235, 86.1571, 85.9934, 85.3229, 85.8998, 85.4461, 85.6692, 86.0365, 86.3385, 87.0174, 85.9514]
+```
+
+```python
+t = [83.9224, 84.292, 84.9333, 85.209, 84.7435, 84.8857, 84.6103, 84.4682, 84.6433, 84.5406, 84.4357, 84.268]
+a = [3.5394, 3.5892, 3.6391, 3.8385, 3.3898, 3.7388, 3.6391, 3.8883, 3.5394, 3.6889, 3.5394, 3.7388]
+b = [3.5394, 3.6391, 3.5892, 3.8385, 3.4895, 3.6391, 3.5892, 3.9382, 3.4895, 3.6391, 3.4895, 3.7886]
+c = [3.6889, 3.6391, 3.4397, 3.8883, 3.4895, 3.6391, 3.7886, 3.6889, 3.6391, 3.4895, 3.5892, 3.6391]
+d = [3.5394, 3.5892, 3.5892, 3.8385, 3.34, 3.7388, 3.6391, 3.8883, 3.5394, 3.6889, 3.4895, 3.6889]
+mean(a) = 3.60419
+mean(b) = 3.58922
+mean(c) = 3.5942099999999995
+mean(d) = 3.58424
+```
+
+4 machines
+
+```python
+e = [4.0379, 3.8883, 3.7886, 3.8385, 3.8385, 3.8385, 3.6889, 3.8385, 3.7388, 3.7886, 3.7388, 3.8385]
+e2 = [3.9382, 3.9382, 3.7886, 3.7388, 3.7388, 3.7388, 3.6391, 3.5892, 3.7388, 3.6889, 3.8385, 3.8385]
+t = [73.3103, 73.5435, 73.5854, 73.0442, 72.5285, 72.2959, 72.3718, 72.3904, 72.0670, 72.3545, 71.4483, 71.7728]
+```
+
+5 machines
+
+```python
+e = [3.9382, 4.0379, 4.0877, 3.988, 3.988, 3.9382, 3.988, 3.9382, 3.9382, 4.1376, 4.1376, 3.8385]
+t = [64.2603, 64.0795, 64.4433, 64.4566, 64.3479, 63.897, 64.2188, 64.4841, 64.5543, 64.1244, 63.805, 64.1887]
+```
+
+6 machines
+
+```python
+e = [3.6391, 4.0379, 3.7886, 3.9382, 3.8883, 3.8883, 3.988, 3.7388, 3.8883, 3.988, 3.8385, 3.8385]
+e2 = [3.8883, 3.7388, 3.8385, 3.9382, 3.8883, 3.7388, 3.7388, 3.8883, 3.7886, 3.8385, 3.7388, 3.6889]
+t = [58.5765, 58.7632, 58.467, 57.7467, 57.9765, 58.5727, 56.7891, 58.0302, 57.1317, 57.1552, 57.0896, 56.9412]
+```
+
+7 machines
+
+```python
+e = [4.0379, 4.0877, 3.988, 4.0877, 3.6889, 4.0877, 3.7388, 3.8385, 4.0379, 3.8883, 3.7886, 3.7886]
+e2 = [3.8883, 3.988, 3.988, 4.0379, 3.8883, 4.0379, 3.9382, 3.7886, 4.0379, 3.988, 4.0877, 3.8385]
+t = [57.7096, 57.2417, 57.1741, 56.9301, 57.1365, 56.9475, 57.6265, 56.8145, 56.9351, 57.0664, 56.685, 57.0828]
+```
+
+8
+
+```python
+e = [4.0379, 4.0379, 3.9382, 3.8883, 3.7886, 3.7886, 3.988, 3.9382, 3.9382, 3.8385, 3.988, 4.1376]
+t = [53.177, 52.7785, 52.7497, 52.9508, 52.817, 53.145, 52.863, 53.5903, 54.6665, 53.5325, 53.6165, 54.0285]
+```
+
+
+
+#### How does the number of machines affect the speed of the ensemble?
+
+
+
+
+
+#### How does the selection of the groups affect the performance?
+
+
+
+
+
+
+
+
+
+
+
+Specs:
+
+
+
+```
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU @ 2.30GHz
+stepping	: 0
+microcode	: 0x1
+cpu MHz		: 2300.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 1
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt arat md_clear arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit
+bogomips	: 4600.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 63
+model name	: Intel(R) Xeon(R) CPU @ 2.30GHz
+stepping	: 0
+microcode	: 0x1
+cpu MHz		: 2300.000
+cache size	: 46080 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 1
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss ht syscall nx pdpe1gb rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx f16c rdrand hypervisor lahf_lm abm invpcid_single ssbd ibrs ibpb stibp fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt arat md_clear arch_capabilities
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit
+bogomips	: 4600.00
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 46 bits physical, 48 bits virtual
+power management:
+```
+
+Memory
+
+cpu count = `2`
+
+virtual memory = `svmem(total=13653561344, available=12692234240, percent=7.0, used=1442799616, free=9946988544, active=912216064, inactive=2521096192, buffers=85061632, cached=2178711552, shared=925696, slab=177098752)`
+
