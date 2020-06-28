@@ -34,8 +34,6 @@ class EnsembleSVM:
         self.feat = self.support_vectors
         self.targ = self.support_vector_labels
 
-        # print(f"Support Vectors: {len(self.feat)}")
-
     def train(self, replace=False):
         model = svm.SVC(kernel='rbf', cache_size=5000, C=self.C)
         print(f"Training set size: {len(self.feat)}")
