@@ -1,10 +1,17 @@
-import random
-
 import numpy as np
 from sklearn import svm
 import scipy.ndimage as im
 from sklearn.metrics import accuracy_score
 from scipy.stats import mode
+
+directions = [(1, 0),  # D
+              (-1, 0),  # U
+              (0, 1),  # R
+              (0, -1),  # L
+              (1, 1),  # RD
+              (1, -1),  # LD
+              (-1, 1),  # RU
+              (-1, -1)]  # LU
 
 
 class EnsembleSVM:
@@ -34,16 +41,30 @@ class EnsembleSVM:
         self.feat = self.support_vectors
         self.targ = self.support_vector_labels
 
-    def train(self, replace=False):
-        model = svm.SVC(kernel='rbf', cache_size=5000, C=self.C)
-        print(f"Training set size: {len(self.feat)}")
-        model.fit(self.feat, self.targ)
-        self.models.append(model)
-        if replace:
-            self.support_vectors = self.feat[model.support_]
-            self.support_vector_labels = self.targ[model.support_]
-        self.feat = self.support_vectors
-        self.targ = self.support_vector_labels
+    def train(self, size=2000, iterations=10):
+
+        for i in range(iterations):
+            self.feat = self.support_vectors
+            self.targ = self.support_vector_labels
+
+            self.add_rotation(-6, 6, 2)
+            self.add_translations(directions[0:8], 1, 1)
+
+            indices = np.asarray(range(len(self.feat)))
+            sample_invariances = np.random.choice(indices, size, replace=True)
+            sample_feat = self.feat[sample_invariances]
+            sample_targ = self.targ[sample_invariances]
+
+            model = svm.SVC(kernel='rbf', cache_size=5000, C=self.C)
+            print(f"Training set size: {len(sample_feat)}")
+            model.fit(sample_feat, sample_targ)
+
+            self.models.append(model)
+
+            self.support_vectors = np.vstack((sample_feat[model.support_], self.support_vectors))
+            self.support_vector_labels = np.append(sample_targ[model.support_], self.support_vector_labels)
+
+
 
     def add_translations(self, directions, min_trans, max_trans):
         for d in directions:
@@ -94,9 +115,14 @@ class EnsembleSVM:
 
         return mode(ensemble_classes, axis=1)[0]
 
-    def error(self):
-        a = self.predict(self.test_features)
-        return np.round(100 - 100 * accuracy_score(self.test_labels, a), 4)
+    def error(self, X=None):
+        if X is not None:
+            a = self.predict(self.features)
+            return np.round(100 - 100 * accuracy_score(self.labels, a), 4)
+        else:
+            a = self.predict(self.test_features)
+            return np.round(100 - 100 * accuracy_score(self.test_labels, a), 4)
+
 
     def print_error(self, X=None):
         if X is None:
@@ -114,7 +140,8 @@ class EnsembleSVM:
         sample_size = int(len(self.feat) * ratio)
 
         for i in range(num_machines):
-            if i == num_machines - 1 or sample_size > indices.shape[0]:  # Remove i == if not doing 1/x and x.
+            if i == num_machines - 1 or sample_size > indices.shape[
+                0]:  # Remove i == if not doing 1/x and x.
                 sample_indices = indices
                 indices = np.asarray(range(len(self.feat)))
             else:

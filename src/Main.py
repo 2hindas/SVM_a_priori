@@ -39,38 +39,11 @@ directions = [(1, 0),  # D
 errors = []
 times = []
 
-np.random.seed(10)
+ensemble = EnsembleSVM(train_features, train_labels, test_features, test_labels, 10, support_vectors=support_vectors, support_labels=support_vector_labels)
 
-for k in range(2, 9):
-    print(f"Number of divisions: {k}")
+start = timer()
+ensemble.train(4000, 4)
+end = timer()
 
-    for i in range(1, 11):
-
-        ensemble = EnsembleSVM(train_features, train_labels, test_features, test_labels, 10, support_vectors=support_vectors, support_labels=support_vector_labels)
-        ensemble.add_rotation(-6, 6, 2)
-        ensemble.add_translations(directions[1:2], 1, 1)  # U
-        ensemble.add_translations(directions[3:4], 1, 1)  # L
-        ensemble.add_translations(directions[5:6], 1, 1)  # LD
-        ensemble.add_translations(directions[7:8], 1, 1)  # LU
-        ensemble.add_translations(directions[2:3], 1, 1)  # R
-        ensemble.add_translations(directions[4:5], 1, 1)  # RD
-        ensemble.add_translations(directions[6:7], 1, 1)  # RU
-        ensemble.add_translations(directions[0:1], 1, 1)  # D
-
-        print(f"Run {i}")
-
-        start = timer()
-        ensemble.train_random_partitions(1 / 1, 1)
-        end = timer()
-
-        errors.append(ensemble.error())
-        print(errors)
-        times.append(np.round(end - start, 4))
-
-    print(f'times_{k} = {times}')
-    print(f'errors_{k} = {errors}')
-    print(f'mean_error_{k} = {np.mean(errors)}')
-    print()
-
-    errors.clear()
-    times.clear()
+print(ensemble.error())
+print(np.round(end - start, 4))
