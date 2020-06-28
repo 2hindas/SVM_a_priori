@@ -42,7 +42,7 @@ times = []
 ensemble = EnsembleSVM(train_features, train_labels, test_features, test_labels, 10, support_vectors=support_vectors, support_labels=support_vector_labels)
 
 start = timer()
-ensemble.train(4000, 4)
+ensemble.train(2500, 3)
 end = timer()
 
 print(ensemble.error())
