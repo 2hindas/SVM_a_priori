@@ -32,6 +32,21 @@ How should the predictions of multiple support vector machines be combined?
 
 
 
+Try out:
+
+randomly sample the ORIGINAL dataset
+create SV each time and run the VSV algorithm for each base classifier
+
+TRIED:
+Prune train:
+Sample SV's with replacement and create invariances then train SMOL dataset
+Did not really work. 4.3 vs 5.0 or something
+
+TRY:
+create invariances then sample with replacement SMOL dataset
+create invariances then sample without replacement SMOL dataset 
+
+
 
 
 #### 

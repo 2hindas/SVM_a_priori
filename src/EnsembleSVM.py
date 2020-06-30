@@ -13,7 +13,6 @@ directions = [(1, 0),  # D
               (-1, 1),  # RU
               (-1, -1)]  # LU
 
-
 class EnsembleSVM:
 
     def __init__(self, train_features, train_labels, test_features, test_labels, constant,
@@ -27,19 +26,38 @@ class EnsembleSVM:
         self.models = []
         self.model_sets = []
         self.C = constant
+
         self.support_vectors = support_vectors
         self.support_vector_labels = support_labels
 
-        self.feat = self.features
-        self.targ = self.labels
+        self.original_SV = support_vectors
+        self.original_SV_labels = support_labels
 
-        self.add_rotation(-6, 6, 2)
-        self.add_translations(directions[0:8], 1, 1)
+        self.feat = self.support_vectors
+        self.targ = self.support_vector_labels
 
-        print(len(self.feat))
+    def prune_train(self, size=2000, iterations=10):
+        for i in range(iterations):
+            print(i)
+            indices = np.asarray(range(len(self.original_SV)))
+            sample_indx = np.random.choice(indices, size, replace=True)
+            sample_SV = self.original_SV[sample_indx]
+            sample_SV_labels = self.original_SV_labels[sample_indx]
+
+            self.feat = sample_SV
+            self.targ = sample_SV_labels
+            self.support_vectors = sample_SV
+            self.support_vector_labels = sample_SV_labels
+
+            self.add_rotation(-4, 4, 4)
+            self.add_rotation(-2, 2, 2)
+            self.add_translations(directions[0:4], 1, 1)
+
+            model = svm.SVC(kernel='rbf', cache_size=5000, C=self.C)
+            model.fit(self.feat, self.targ)
+            self.models.append(model)
 
     def train(self, size=2000, iterations=10):
-
         for i in range(iterations):
             indices = np.asarray(range(len(self.feat)))
             sample_invariances = np.random.choice(indices, size, replace=True)
@@ -53,29 +71,34 @@ class EnsembleSVM:
             a = model.predict(self.features)
             print(np.round(100 - 100 * accuracy_score(self.labels, a), 4))
 
+    def basic_train(self):
+        model = svm.SVC(kernel='rbf', cache_size=5000, C=self.C)
+        model.fit(self.feat, self.targ)
+        self.models.append(model)
+
     def add_translations(self, directions, min_trans, max_trans):
         for d in directions:
             for i in range(min_trans, max_trans + 1):
-                num_sv = len(self.features)
+                num_sv = len(self.support_vectors)
                 transformation = im.shift(
-                    self.features.reshape(
+                    self.support_vectors.reshape(
                         (num_sv, self.sqrt_features, self.sqrt_features)),
                     (0, d[0] * i, d[1] * i), mode='constant', cval=-1)
                 translated_features = transformation.reshape((num_sv, self.num_features))
-                self.targ = np.append(self.targ, self.labels)
+                self.targ = np.append(self.targ, self.support_vector_labels)
                 self.feat = np.vstack((translated_features, self.feat))
 
     def add_rotation(self, min_degrees, max_degrees, step_size):
         for angle in range(min_degrees, max_degrees + 1, step_size):
             if angle == 0:
                 continue
-            num_sv = len(self.features)
+            num_sv = len(self.support_vectors)
             transformation = im.rotate(
-                self.features.reshape((num_sv, self.sqrt_features, self.sqrt_features)),
+                self.support_vectors.reshape((num_sv, self.sqrt_features, self.sqrt_features)),
                 axes=(1, 2), order=1, angle=angle,
                 mode='constant', cval=-1, reshape=False)
             translated_features = transformation.reshape((num_sv, self.num_features))
-            self.targ = np.append(self.targ, self.labels)
+            self.targ = np.append(self.targ, self.support_vector_labels)
             self.feat = np.vstack((translated_features, self.feat))
 
     def predict(self, X, models=None):
@@ -93,6 +116,7 @@ class EnsembleSVM:
         for model in m:
 
             margins = model.decision_function(X)
+            print(margins.shape)
             classes = np.argmax(margins, axis=1)
 
             if ensemble_classes is None:
