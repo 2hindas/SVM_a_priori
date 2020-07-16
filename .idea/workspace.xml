@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="fixed the prune vector code">
-      <change afterPath="$PROJECT_DIR$/.idea/SVM_a_priori.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/polynomial_deg5_different_dataset_sizes.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SupportVectorMachine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SupportVectorMachine.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Main">
+  <component name="RunManager" selected="Python.test">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -107,13 +105,34 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SVM_a_priori" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.asdasd" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.asdasd" />
-        <item itemvalue="Python.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -398,30 +417,30 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="184" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1590696234639" />
-    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1593774365377">
+    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1594497580923">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1593774365377" />
+    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1594497580923" />
     <state x="100" y="123" width="1240" height="677" key="DiffContextDialog" timestamp="1593774599166">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1593774599166" />
-    <state width="1440" height="212" key="GridCell.Tab.0.bottom" timestamp="1594497362152">
+    <state width="1440" height="268" key="GridCell.Tab.0.bottom" timestamp="1594921351928">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="212" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1594497362152" />
-    <state width="1440" height="212" key="GridCell.Tab.0.center" timestamp="1594497362150">
+    <state width="1440" height="268" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1594921351928" />
+    <state width="1440" height="268" key="GridCell.Tab.0.center" timestamp="1594921351927">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="212" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1594497362150" />
-    <state width="1440" height="212" key="GridCell.Tab.0.left" timestamp="1594497362149">
+    <state width="1440" height="268" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1594921351927" />
+    <state width="1440" height="268" key="GridCell.Tab.0.left" timestamp="1594921351927">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="212" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1594497362149" />
-    <state width="1440" height="212" key="GridCell.Tab.0.right" timestamp="1594497362151">
+    <state width="1440" height="268" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1594921351927" />
+    <state width="1440" height="268" key="GridCell.Tab.0.right" timestamp="1594921351928">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="212" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1594497362151" />
+    <state width="1440" height="268" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1594921351928" />
     <state x="120" y="68" key="MergeDialog" timestamp="1593001767685">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>

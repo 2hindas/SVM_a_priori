@@ -39,7 +39,7 @@ class SupportVectorMachine:
         self.targets = self.support_vector_targets
 
     def set_kernel(self, kernel):
-        self.model = svm.SVC(kernel=kernel.jitter_kernel, cache_size=1000, C=1)
+        self.model = svm.SVC(kernel=kernel.pooling_kernel, cache_size=1000, C=1)
 
     def reset_kernel(self):
         self.model = svm.SVC(kernel='rbf', cache_size=1000)

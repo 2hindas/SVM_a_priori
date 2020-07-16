@@ -1,0 +1,9 @@
+    Dataset size: 35000   Error: 28.560   Number of SV: 13135       own poly kernel coef0 = 1
+    Dataset size: 35000   Error: 2.120   Number of SV: 8186         sklearn kernel coef0 = 0
+    Dataset size: 35000   Error: 2.570   Number of SV: 8779         own poly kernel coef0 = 0
+    Dataset size: 35000   Error: 14.530   Number of SV: 8969        own kernel coef0 = 0, pooling kernel coef0 = 1
+    Dataset size: 35000   Error: 16.870   Number of SV: 8161        own kernel coef0 = 0, pooling kernel coef0 = 0
+    Dataset size: 35000   Error: 12.720   Number of SV: 9888        RBF, pooling kernel coef0 = 0
+    Dataset size: 35000   Error: 18.040   Number of SV: 10002       RBF, pooling kernel coef0 = 1
+    Dataset size: 35000   Error: 23.510   Number of SV: 14046       own RBF
+    Dataset size: 35000   Error: 2.570   Number of SV: 8779         sklearn RBF
