@@ -3,10 +3,13 @@ import os
 import hickle as hkl
 import numpy as np
 import tensorflow as tf
+from PIL import Image
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn.metrics.pairwise import polynomial_kernel
 from sklearn.metrics.pairwise import rbf_kernel
+from skimage.transform import resize
+from sklearn.preprocessing import MinMaxScaler
 
 logging.disable(logging.WARNING)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -27,19 +30,18 @@ def test_error(model, features, labels):
 
 
 def pooling_kernel(x_matrix, y_matrix):
+    num_features = x_matrix.shape[1]
+    sqrt_features = int(np.sqrt(num_features))
+    x_length = x_matrix.shape[0]
+    y_length = y_matrix.shape[0]
 
     def RBF(X, Y):
         gamma = 1.0 / (X.shape[1] * X.var())
         return rbf_kernel(X, Y, gamma=gamma)
 
-    def polynomial(X, Y, degree, coef0=1):
+    def polynomial(X, Y, degree, coef0):
         gamma = 1.0 / (X.shape[1] * X.var())
-        return polynomial_kernel(X, Y, degree=degree, gamma=gamma, coef0=coef0)
-
-    num_features = x_matrix.shape[1]
-    sqrt_features = int(np.sqrt(num_features))
-    x_length = x_matrix.shape[0]
-    y_length = y_matrix.shape[0]
+        return polynomial_kernel(X, Y, gamma=gamma, degree=degree, coef0=coef0)
 
     gram_matrix = RBF(x_matrix, y_matrix)
 
@@ -54,44 +56,64 @@ def pooling_kernel(x_matrix, y_matrix):
     max_pool = tf.keras.layers.MaxPool2D(pool_size=(filter_size, filter_size),
                                          strides=filter_stride)
     filtered_x = max_pool(x_reshaped).numpy() \
-        .reshape(x_length, np.square(int(sqrt_features - filter_size + filter_stride)))
+        .reshape(x_length, np.square(int(sqrt_features/filter_stride - filter_size + filter_stride)))
     filtered_y = max_pool(y_reshaped).numpy() \
-        .reshape(y_length, np.square(int(sqrt_features - filter_size + filter_stride)))
+        .reshape(y_length, np.square(int(sqrt_features/filter_stride - filter_size + filter_stride)))
 
-    pooled_matrix = polynomial(filtered_x, filtered_y, kernel_degree, coef0=1)
+    del x_reshaped, y_reshaped
 
-    gram_matrix = pooled_matrix * gram_matrix
+    pooled_matrix = polynomial(filtered_x, filtered_y, kernel_degree, 1)
+    del filtered_x, filtered_y
+
+    np.multiply(gram_matrix, pooled_matrix, out=gram_matrix)
+    del pooled_matrix
+
     return gram_matrix
 
 
-
-dataset = "MNIST"
-seed = 150
+dataset = "USPS"
+seed = 100
 dataset_size = 35000
 
 np.random.seed(seed)
-indices = np.random.choice(60000, dataset_size, replace=False)
+# indices = np.random.choice(60000, dataset_size, replace=False)
 
-train_features = hkl.load(f'../data/{dataset}_train_features.hkl')[indices]
-train_labels = hkl.load(f'../data/{dataset}_train_labels.hkl')[indices]
-test_features = hkl.load(f'../data/{dataset}_test_features.hkl')
-test_labels = hkl.load(f'../data/{dataset}_test_labels.hkl')
-
-C = 1.0
+C = 1
 base_degree = 5
 kernel_degree = 3
-filter_size = 3
+filter_size = 6
 filter_stride = 1
-use_pooling = False
+use_pooling = True
 
-output_file = 'polynomial_deg5_different_dataset_sizes.txt'
+train_features = hkl.load(f'../data/{dataset}_train_features.hkl')
+train_labels = hkl.load(f'../data/{dataset}_train_labels.hkl')
+test_features = hkl.load(f'../data/{dataset}_test_features.hkl')
+test_labels = hkl.load(f'../data/{dataset}_test_labels.hkl')
+# support_vectors = hkl.load(f'../data/{dataset}_{C}_SV_features.hkl')
+# support_vector_labels = hkl.load(f'../data/{dataset}_{C}_SV_labels.hkl')
+
+# new_size = 28
+#
+# imgs_out = np.zeros((7290, new_size, new_size))
+# imgs2_out = np.zeros((2006, new_size, new_size))
+#
+# for n, i in enumerate(train_features):
+#     imgs_out[n] = resize(i, (new_size, new_size), anti_aliasing=False, preserve_range=True)
+#
+# for n, i in enumerate(test_features):
+#     imgs2_out[n] = resize(i, (new_size, new_size), anti_aliasing=False, preserve_range=True)
+#
+# train_features = train_features.reshape((7290, 20 ** 2))
+# test_features = test_features.reshape((2006, 20 ** 2))
+
+output_file = 'USPS_pooling_kernel_degrees_1_to_5.txt'
 
 # flush("VARYING", tab=False)
-# flush(f"Dataset size: {dataset_size}")
+# flush(f"Kernel Degree: {kernel_degree}")
 # flush("", tab=False)
-
+#
 # flush("FIXED", tab=False)
-# flush(f"Base kernel degree: {kernel_degree}")
+# flush(f"Dataset: {dataset}")
 # flush("gamma: scale")
 # flush(f"C: {C}")
 # flush(f"Seed: {seed}")
@@ -99,26 +121,27 @@ output_file = 'polynomial_deg5_different_dataset_sizes.txt'
 # flush(f"Filter stride: {filter_stride}")
 # flush(f"Pooling is being used: {use_pooling}")
 # flush("", tab=False)
-
-# flush("BASE RESULTS (no pooling)", tab=False)
+#
+# flush("BASE RESULTS (no pooling)", tab=False, enter=False)
 # flush("", tab=False)
 # use_pooling = False
 # machine = svm.SVC(C=C, cache_size=8000, kernel=pooling_kernel)
 # machine.fit(train_features, train_labels)
-# print(f"Error: {test_error(machine, test_features, test_labels):.3f}\n")
+# flush(f"Error: {test_error(machine, test_features, test_labels):.3f}", tab=False)
+# flush("", tab=False)
 # use_pooling = True
-
+#
 # flush("RESULTS", tab=False)
-# for i in range(32000, 40001, 2000):
 
-print(f"Current size: {dataset_size}")
+for i in range(1, 6):
+    kernel_degree = i
+    print(f"Current Kernel degree: {i}")
 
-machine = svm.SVC(C=C, cache_size=5000, kernel='rbf')
-machine.fit(train_features, train_labels)
+    machine = svm.SVC(C=C, cache_size=5000, kernel=pooling_kernel)
+    machine.fit(train_features, train_labels)
 
-flush(
-    f"Dataset size: {dataset_size}   Error: {test_error(machine, test_features, test_labels):.3f}   "
-    f"Number of SV: {len(machine.support_)}")
+    flush(
+        f"Pooling Kernel degree: {i}   coef0 = 1   Error: {test_error(machine, test_features, test_labels):.3f}   "
+        f"Number of SV: {len(machine.support_)}")
 
 print('done')
-

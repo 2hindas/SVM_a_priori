@@ -1,0 +1,87 @@
+VARYING
+    Kernel Degree
+
+FIXED
+    Dataset: USPS
+    gamma: scale
+    C: 1
+    Seed: 100
+    Filter size: 2
+    Filter stride: 1
+    Pooling is being used: True
+
+BASE RESULTS (no pooling)
+Error: 5.334
+
+RESULTS
+    Pooling Kernel degree: 1   coef0 = 1   Error: 4.636   Number of SV: 2139
+    Pooling Kernel degree: 2   coef0 = 1   Error: 4.287   Number of SV: 2224
+    Pooling Kernel degree: 3   coef0 = 1   Error: 4.487   Number of SV: 2300
+    Pooling Kernel degree: 4   coef0 = 1   Error: 4.586   Number of SV: 2362
+    Pooling Kernel degree: 5   coef0 = 1   Error: 4.636   Number of SV: 2446
+
+    Pooling Kernel degree: 1   coef0 = 0   Error: 4.686   Number of SV: 2196
+    Pooling Kernel degree: 2   coef0 = 0   Error: 4.686   Number of SV: 2278
+    Pooling Kernel degree: 3   coef0 = 0   Error: 4.636   Number of SV: 2425
+    Pooling Kernel degree: 4   coef0 = 0   Error: 4.736   Number of SV: 2555
+    Pooling Kernel degree: 5   coef0 = 0   Error: 5.035   Number of SV: 2719
+
+CHANGED
+    Filter size: 3
+
+    Pooling Kernel degree: 1   coef0 = 1   Error: 4.636   Number of SV: 2144
+    Pooling Kernel degree: 2   coef0 = 1   Error: 4.287   Number of SV: 2199
+    Pooling Kernel degree: 3   coef0 = 1   Error: 4.487   Number of SV: 2282
+    Pooling Kernel degree: 4   coef0 = 1   Error: 4.536   Number of SV: 2357
+    Pooling Kernel degree: 5   coef0 = 1   Error: 4.736   Number of SV: 2423
+
+    Pooling Kernel degree: 1   coef0 = 0   Error: 4.786   Number of SV: 2230
+    Pooling Kernel degree: 2   coef0 = 0   Error: 4.835   Number of SV: 2341
+    Pooling Kernel degree: 3   coef0 = 0   Error: 4.985   Number of SV: 2470
+    Pooling Kernel degree: 4   coef0 = 0   Error: 5.234   Number of SV: 2630
+    Pooling Kernel degree: 5   coef0 = 0   Error: 5.234   Number of SV: 2803
+
+CHANGED
+    Filter size: 4
+
+    Pooling Kernel degree: 1   coef0 = 0   Error: 4.835   Number of SV: 2258
+    Pooling Kernel degree: 2   coef0 = 0   Error: 4.786   Number of SV: 2363
+    Pooling Kernel degree: 3   coef0 = 0   Error: 4.985   Number of SV: 2506
+    Pooling Kernel degree: 4   coef0 = 0   Error: 5.085   Number of SV: 2627
+    Pooling Kernel degree: 5   coef0 = 0   Error: 5.284   Number of SV: 2776
+
+    Pooling Kernel degree: 1   coef0 = 1   Error: 4.636   Number of SV: 2149
+    Pooling Kernel degree: 2   coef0 = 1   Error: 4.187   Number of SV: 2218
+    Pooling Kernel degree: 3   coef0 = 1   Error: 4.387   Number of SV: 2303
+    Pooling Kernel degree: 4   coef0 = 1   Error: 4.437   Number of SV: 2390
+    Pooling Kernel degree: 5   coef0 = 1   Error: 4.487   Number of SV: 2453
+
+CHANGED
+    Filter size: 5
+
+    Pooling Kernel degree: 1   coef0 = 1   Error: 4.437   Number of SV: 2124
+    Pooling Kernel degree: 2   coef0 = 1   Error: 4.138   Number of SV: 2215
+    Pooling Kernel degree: 3   coef0 = 1   Error: 4.237   Number of SV: 2293
+    Pooling Kernel degree: 4   coef0 = 1   Error: 4.287   Number of SV: 2372
+    Pooling Kernel degree: 5   coef0 = 1   Error: 4.387   Number of SV: 2434
+
+    Pooling Kernel degree: 1   coef0 = 0   Error: 4.536   Number of SV: 2232
+    Pooling Kernel degree: 2   coef0 = 0   Error: 4.536   Number of SV: 2307
+    Pooling Kernel degree: 3   coef0 = 0   Error: 4.686   Number of SV: 2415
+    Pooling Kernel degree: 4   coef0 = 0   Error: 4.736   Number of SV: 2522
+    Pooling Kernel degree: 5   coef0 = 0   Error: 4.835   Number of SV: 2613
+
+CHANGED
+    Filter size: 6
+
+    Pooling Kernel degree: 1   coef0 = 0   Error: 4.586   Number of SV: 2138
+    Pooling Kernel degree: 2   coef0 = 0   Error: 4.536   Number of SV: 2200
+    Pooling Kernel degree: 3   coef0 = 0   Error: 4.487   Number of SV: 2248
+    Pooling Kernel degree: 4   coef0 = 0   Error: 4.686   Number of SV: 2289
+    Pooling Kernel degree: 5   coef0 = 0   Error: 4.586   Number of SV: 2316
+
+    Pooling Kernel degree: 1   coef0 = 1   Error: 4.287   Number of SV: 2102
+    Pooling Kernel degree: 2   coef0 = 1   Error: 4.337   Number of SV: 2165
+    Pooling Kernel degree: 3   coef0 = 1   Error: 4.337   Number of SV: 2212
+    Pooling Kernel degree: 4   coef0 = 1   Error: 4.586   Number of SV: 2242
+    Pooling Kernel degree: 5   coef0 = 1   Error: 4.536   Number of SV: 2270

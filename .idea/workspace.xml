@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="fixed the prune vector code">
-      <change afterPath="$PROJECT_DIR$/src/polynomial_deg5_different_dataset_sizes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/USPS.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/USPS_pooling_kernel_degrees_1_to_5.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/preivous.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SupportVectorMachine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SupportVectorMachine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/polynomial_deg5_different_dataset_sizes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/polynomial_deg5_different_dataset_sizes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,15 +52,15 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/data" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data" />
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
@@ -425,22 +427,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1593774599166" />
-    <state width="1440" height="268" key="GridCell.Tab.0.bottom" timestamp="1594921351928">
+    <state width="1440" height="207" key="GridCell.Tab.0.bottom" timestamp="1595005976722">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="268" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1594921351928" />
-    <state width="1440" height="268" key="GridCell.Tab.0.center" timestamp="1594921351927">
+    <state width="1440" height="207" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595005976722" />
+    <state width="1440" height="207" key="GridCell.Tab.0.center" timestamp="1595005976720">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="268" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1594921351927" />
-    <state width="1440" height="268" key="GridCell.Tab.0.left" timestamp="1594921351927">
+    <state width="1440" height="207" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595005976720" />
+    <state width="1440" height="207" key="GridCell.Tab.0.left" timestamp="1595005976719">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="268" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1594921351927" />
-    <state width="1440" height="268" key="GridCell.Tab.0.right" timestamp="1594921351928">
+    <state width="1440" height="207" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595005976719" />
+    <state width="1440" height="207" key="GridCell.Tab.0.right" timestamp="1595005976721">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="268" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1594921351928" />
+    <state width="1440" height="207" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595005976721" />
     <state x="120" y="68" key="MergeDialog" timestamp="1593001767685">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -479,9 +481,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="380" y="368" key="git4idea.ui.GitResetDialog/0.23.1440.877@0.23.1440.877" timestamp="1593369047378" />
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1593774481141">
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1595000919673">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1593774481141" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1595000919673" />
   </component>
 </project>

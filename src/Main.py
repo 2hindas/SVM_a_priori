@@ -37,28 +37,29 @@ dataset_size = 22000
 use_pooling = False
 
 
-def RBF(X, Y):
-    gamma = 1.0 / (X.shape[1] * X.var())
-    return rbf_kernel(X, Y, gamma=gamma)
-
-
-def polynomial(X, Y, degree, coef0=1):
-    gamma = 1.0 / (X.shape[1] * X.var())
-    return polynomial_kernel(X, Y, degree=degree, gamma=gamma, coef0=coef0)
-
-
 def test_error(model, features, labels):
     error = (1.0 - accuracy_score(labels, model.predict(features))) * 100
     return np.around(error, decimals=3)
 
 
 def pooling_kernel(x_matrix, y_matrix):
+    variance = x_matrix.var()
     num_features = x_matrix.shape[1]
     sqrt_features = int(np.sqrt(num_features))
     x_length = x_matrix.shape[0]
     y_length = y_matrix.shape[0]
 
-    gram_matrix = polynomial(x_matrix, y_matrix, base_degree)
+    def RBF(X, Y):
+        gamma = 1.0 / (num_features * variance)
+        return rbf_kernel(X, Y, gamma=gamma)
+
+    def polynomial(X, Y, degree, coef0=1):
+        # gamma = 1.0 / (num_features * variance)
+        # gamma = 1.0 / num_features
+        # return polynomial_kernel(X, Y, degree=degree, gamma=gamma, coef0=coef0)
+        return polynomial_kernel(X, Y, degree=degree)
+
+    gram_matrix = RBF(x_matrix, y_matrix)
 
     if not use_pooling:
         return gram_matrix
@@ -66,15 +67,20 @@ def pooling_kernel(x_matrix, y_matrix):
     x_reshaped = x_matrix.reshape(x_length, sqrt_features, sqrt_features, 1)
     y_reshaped = y_matrix.reshape(y_length, sqrt_features, sqrt_features, 1)
 
+    del x_matrix
+    del y_matrix
+
     max_pool = MaxPool2D(pool_size=(filter_size, filter_size), strides=filter_stride)
     filtered_x = max_pool(x_reshaped).numpy() \
         .reshape(x_length, np.square(int(sqrt_features - filter_size + filter_stride)))
     filtered_y = max_pool(y_reshaped).numpy() \
         .reshape(y_length, np.square(int(sqrt_features - filter_size + filter_stride)))
 
-    pooled_matrix = polynomial(filtered_x, filtered_y, kernel_degree)
+    gram_matrix = polynomial(filtered_x, filtered_y, kernel_degree) * gram_matrix
 
-    gram_matrix = pooled_matrix * gram_matrix
+    del filtered_x
+    del filtered_y
+
     return gram_matrix
 
 

@@ -7,3 +7,34 @@
     Dataset size: 35000   Error: 18.040   Number of SV: 10002       RBF, pooling kernel coef0 = 1
     Dataset size: 35000   Error: 23.510   Number of SV: 14046       own RBF
     Dataset size: 35000   Error: 2.570   Number of SV: 8779         sklearn RBF
+    Dataset size: 30000   Error: 2.780   Number of SV: 7999         own RBF
+    Dataset size: 30000   Error: 1.910   Number of SV: 8090         own RBF + pooling degree 3
+    Dataset size: 30000   Error: 2.120   Number of SV: 9234         RBF + kernel RBF
+    Dataset size: 30000   Error: 2.550   Number of SV: 6486         poly 5
+    Dataset size: 30000   Error: 1.940   Number of SV: 6867         poly 5 + pooling degree 3
+    Dataset size: 40000   Error: 18.390   Number of SV: 11804       poly 5 + pooling degree 3
+    Dataset size: 40000   Error: 25.280   Number of SV: 18928       poly 5 coef0 = 1
+    Dataset size: 40000   Error: 12.790   Number of SV: 13483       poly 5 + pooling degree 3 both coef0 = 0
+    Dataset size: 40000   Error: 14.380   Number of SV: 12768       RBF + pooling degree 3
+
+    Dataset size: 30000   Error: 2.910   Number of SV: 7347         ONLY kernel RBF
+    Dataset size: 40000   Error: 2.770   Number of SV: 8752         ONLY kernel RBF
+    Dataset size: 40000   Error: 3.060   Number of SV: 8604         ONLY kernel poly 3
+    Dataset size: 40000   Error: 9.100   Number of SV: 11458        RBF + RBF
+    Dataset size: 40000   Error: 14.580   Number of SV: 12560
+    Dataset size: 15000   Error: 3.020   Number of SV: 6136         RBF + poly 5
+    Dataset size: 15000   Error: 2.720   Number of SV: 5495         RBF + poly 3
+
+    Dataset size: 15000   Error: 2.610   Number of SV: 4408         RBF + poly 3? (addition)
+    Dataset size: 40000   Error: 18.680   Number of SV: 12051
+    Dataset size: SV   Error: 1.690   Number of SV: 9630
+    Dataset size: SV   Error: 1.680   Number of SV: 9839
+    Dataset size: SV   Error: 1.770   Number of SV: 11102
+    Dataset size: SV   Error: 1.750   Number of SV: 10872
+    Dataset size: 40000   Error: 1.440   Number of SV: 10517
+    Dataset size: 40000   Error: 1.410   Number of SV: 10540
+    Dataset size: 40000   Error: 1.690   Number of SV: 11732
+    Dataset size: 40000   Error: 1.410   Number of SV: 10540
+    Dataset size: 40000   Error: 1.510   Number of SV: 10753
+    Dataset size: 40000   Error: 1.390   Number of SV: 10587
+    Dataset size: 35000   Error: 2.030   Number of SV: 7529
