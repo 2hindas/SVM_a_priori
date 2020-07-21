@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="fixed the prune vector code">
-      <change afterPath="$PROJECT_DIR$/src/USPS.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/USPS_pooling_kernel_degrees_1_to_5.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/preivous.py" afterDir="false" />
+    <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/MNIST.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/USPS_SV.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/polynomial_deg5_different_dataset_sizes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/polynomial_deg5_different_dataset_sizes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Kernels.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/USPS_pooling_kernel_degrees_1_to_5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/USPS_pooling_kernel_degrees_1_to_5.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -378,12 +377,18 @@
       <option name="project" value="LOCAL" />
       <updated>1593512103140</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="USPS experiments">
+      <created>1595006152654</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1595006152655</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Small experiments with results. &#10;Best accuracy is 0.96 until now." />
     <MESSAGE value="Base" />
     <MESSAGE value="NN small experiments." />
     <MESSAGE value="added classes for VSV and JK's" />
@@ -408,7 +413,8 @@
     <MESSAGE value="Basic sample replace: SV are transformed and sampled. New SV's are added to the original SV set. Repeat." />
     <MESSAGE value="ALL vectors are transformed and are sampled, either with or without replacement. It can be chosen whether the support vectors are included or not in every training set." />
     <MESSAGE value="fixed the prune vector code" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed the prune vector code" />
+    <MESSAGE value="USPS experiments" />
+    <option name="LAST_COMMIT_MESSAGE" value="USPS experiments" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="128" key="#Notifications" timestamp="1586962356802">
@@ -419,30 +425,34 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="184" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1590696234639" />
-    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1594497580923">
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595006890614">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1594497580923" />
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1595006890614" />
+    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1595361314172">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1595361314172" />
     <state x="100" y="123" width="1240" height="677" key="DiffContextDialog" timestamp="1593774599166">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1593774599166" />
-    <state width="1440" height="207" key="GridCell.Tab.0.bottom" timestamp="1595005976722">
+    <state width="1440" height="226" key="GridCell.Tab.0.bottom" timestamp="1595361196648">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="207" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595005976722" />
-    <state width="1440" height="207" key="GridCell.Tab.0.center" timestamp="1595005976720">
+    <state width="1440" height="226" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595361196648" />
+    <state width="1440" height="226" key="GridCell.Tab.0.center" timestamp="1595361196647">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="207" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595005976720" />
-    <state width="1440" height="207" key="GridCell.Tab.0.left" timestamp="1595005976719">
+    <state width="1440" height="226" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595361196647" />
+    <state width="1440" height="226" key="GridCell.Tab.0.left" timestamp="1595361196646">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="207" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595005976719" />
-    <state width="1440" height="207" key="GridCell.Tab.0.right" timestamp="1595005976721">
+    <state width="1440" height="226" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595361196646" />
+    <state width="1440" height="226" key="GridCell.Tab.0.right" timestamp="1595361196648">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="207" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595005976721" />
+    <state width="1440" height="226" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595361196648" />
     <state x="120" y="68" key="MergeDialog" timestamp="1593001767685">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -460,10 +470,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="228" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1592143807415" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1593512104703">
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1595006155295">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1593512104703" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1595006155295" />
     <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589128499862">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

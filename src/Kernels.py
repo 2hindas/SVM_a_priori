@@ -1,3 +1,5 @@
+from abc import abstractmethod
+
 from sklearn.metrics.pairwise import rbf_kernel
 import scipy.ndimage as im
 import numpy as np
