@@ -44,7 +44,9 @@ class SupportVectorMachine:
     def reset_kernel(self):
         self.model = svm.SVC(kernel='rbf', cache_size=1000)
 
-    def rotate_SV(self, vectors, min_degrees, max_degrees, step_size):
+    def rotate_SV(self, vectors, min_degrees, max_degrees, step_size, labels):
+        output = vectors
+        outputlabels = labels
         for angle in range(min_degrees, max_degrees + 1, step_size):
             if angle == 0:
                 continue
@@ -53,16 +55,22 @@ class SupportVectorMachine:
                 vectors.reshape((num_sv, self.sqrt_features, self.sqrt_features)),
                 axes=(1, 2), order=1, angle=angle,
                 mode='constant', cval=-1, reshape=False)
-            return transformation.reshape((num_sv, self.num_features))
+            output = np.vstack((output, transformation.reshape((num_sv, self.num_features))))
+            outputlabels = np.append(outputlabels, labels)
+        return output, outputlabels
 
-    def translate_SV(self, vectors, transformations, min_trans, max_trans):
+    def translate_SV(self, vectors, transformations, min_trans, max_trans, labels):
+        output = vectors
+        outputlabels = labels
         for t in transformations:
             for i in range(min_trans, max_trans + 1):
                 num_sv = len(vectors)
                 transformation = im.shift(
                     vectors.reshape((num_sv, self.sqrt_features, self.sqrt_features)),
                     (0, t[0] * i, t[1] * i), mode='constant', cval=-1)
-                return transformation.reshape((num_sv, self.num_features))
+                output = np.vstack((output, transformation.reshape((num_sv, self.num_features))))
+                outputlabels = np.append(outputlabels, labels)
+        return output, outputlabels
 
     def predict(self, test_features):
         self.model.predict(test_features)

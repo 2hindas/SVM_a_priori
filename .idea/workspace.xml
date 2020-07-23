@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MNIST.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/USPS_SV.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Experiment Descriptions.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_figure.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graph.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernels.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/USPS_pooling_kernel_degrees_1_to_5.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/USPS_pooling_kernel_degrees_1_to_5.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SupportVectorMachine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SupportVectorMachine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,15 +56,17 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/data" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/results" />
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.graph">
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -106,6 +109,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="experiments" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SVM_a_priori" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/experiments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SVM_a_priori" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/graph.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -129,9 +174,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.graph" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.Main" />
-        <item itemvalue="Python.asdasd" />
+        <item itemvalue="Python.experiments" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.asdasd" />
       </list>
@@ -425,10 +470,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="184" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1590696234639" />
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595006890614">
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595520223507">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1595006890614" />
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1595520223507" />
     <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1595361314172">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -437,22 +482,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1593774599166" />
-    <state width="1440" height="226" key="GridCell.Tab.0.bottom" timestamp="1595361196648">
+    <state width="1440" height="364" key="GridCell.Tab.0.bottom" timestamp="1595519211887">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="226" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595361196648" />
-    <state width="1440" height="226" key="GridCell.Tab.0.center" timestamp="1595361196647">
+    <state width="1440" height="364" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595519211887" />
+    <state width="1440" height="364" key="GridCell.Tab.0.center" timestamp="1595519211887">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="226" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595361196647" />
-    <state width="1440" height="226" key="GridCell.Tab.0.left" timestamp="1595361196646">
+    <state width="1440" height="364" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595519211887" />
+    <state width="1440" height="364" key="GridCell.Tab.0.left" timestamp="1595519211886">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="226" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595361196646" />
-    <state width="1440" height="226" key="GridCell.Tab.0.right" timestamp="1595361196648">
+    <state width="1440" height="364" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595519211886" />
+    <state width="1440" height="364" key="GridCell.Tab.0.right" timestamp="1595519211887">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="226" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595361196648" />
+    <state width="1440" height="364" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595519211887" />
     <state x="120" y="68" key="MergeDialog" timestamp="1593001767685">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
