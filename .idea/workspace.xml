@@ -2,13 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/results/Experiment Descriptions.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_figure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/graph.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size2.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size2_figure.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size3.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size3_figure.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/USPS_GS_gamma_kernel_deg_CV3_size3_figure.eps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SupportVectorMachine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SupportVectorMachine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/Experiment Descriptions.md" beforeDir="false" afterPath="$PROJECT_DIR$/results/Experiment Descriptions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_figure.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="USPS" />
+        <entry key="$PROJECT_DIR$" value="multiple-kernel-invariances" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -52,17 +56,18 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/results" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/results" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/results" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
@@ -88,27 +93,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="asdasd" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SVM_a_priori" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/asdasd.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="experiments" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -122,6 +106,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/experiments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="filter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SVM_a_priori" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/filter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -174,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.graph" />
         <item itemvalue="Python.test" />
-        <item itemvalue="Python.experiments" />
         <item itemvalue="Python.Main" />
-        <item itemvalue="Python.asdasd" />
+        <item itemvalue="Python.graph" />
+        <item itemvalue="Python.filter" />
+        <item itemvalue="Python.experiments" />
       </list>
     </recent_temporary>
   </component>
@@ -429,12 +434,18 @@
       <option name="project" value="LOCAL" />
       <updated>1595006152655</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="USPS grid search results">
+      <created>1595520276643</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1595520276643</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Base" />
     <MESSAGE value="NN small experiments." />
     <MESSAGE value="added classes for VSV and JK's" />
     <MESSAGE value="Setup MNIST" />
@@ -459,7 +470,8 @@
     <MESSAGE value="ALL vectors are transformed and are sampled, either with or without replacement. It can be chosen whether the support vectors are included or not in every training set." />
     <MESSAGE value="fixed the prune vector code" />
     <MESSAGE value="USPS experiments" />
-    <option name="LAST_COMMIT_MESSAGE" value="USPS experiments" />
+    <MESSAGE value="USPS grid search results" />
+    <option name="LAST_COMMIT_MESSAGE" value="USPS grid search results" />
   </component>
   <component name="WindowStateProjectService">
     <state x="320" y="128" key="#Notifications" timestamp="1586962356802">
@@ -470,34 +482,34 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="184" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1590696234639" />
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595520223507">
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595590699430">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1595520223507" />
-    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1595361314172">
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1595590699430" />
+    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1595520276439">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1595361314172" />
+    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1595520276439" />
     <state x="100" y="123" width="1240" height="677" key="DiffContextDialog" timestamp="1593774599166">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1593774599166" />
-    <state width="1440" height="364" key="GridCell.Tab.0.bottom" timestamp="1595519211887">
+    <state width="1410" height="221" key="GridCell.Tab.0.bottom" timestamp="1595595075679">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="364" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595519211887" />
-    <state width="1440" height="364" key="GridCell.Tab.0.center" timestamp="1595519211887">
+    <state width="1410" height="221" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595595075679" />
+    <state width="1410" height="221" key="GridCell.Tab.0.center" timestamp="1595595075678">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="364" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595519211887" />
-    <state width="1440" height="364" key="GridCell.Tab.0.left" timestamp="1595519211886">
+    <state width="1410" height="221" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595595075678" />
+    <state width="1410" height="221" key="GridCell.Tab.0.left" timestamp="1595595075678">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="364" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595519211886" />
-    <state width="1440" height="364" key="GridCell.Tab.0.right" timestamp="1595519211887">
+    <state width="1410" height="221" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595595075678" />
+    <state width="1410" height="221" key="GridCell.Tab.0.right" timestamp="1595595075678">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="364" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595519211887" />
+    <state width="1410" height="221" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595595075678" />
     <state x="120" y="68" key="MergeDialog" timestamp="1593001767685">
       <screen x="0" y="23" width="1680" height="1027" />
     </state>
@@ -515,10 +527,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="228" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1592143807415" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1595006155295">
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1595520278006">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1595006155295" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1595520278006" />
     <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589128499862">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics.pairwise import polynomial_kernel
 from sklearn.metrics.pairwise import rbf_kernel
 from sklearn.preprocessing import MinMaxScaler
+from PIL import Image
 
 logging.disable(logging.WARNING)
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -27,11 +28,11 @@ def color(string):
 
 
 seed = 150
-dataset = "MNIST"
+dataset = "USPS"
 C = 1
 base_degree = 5
 kernel_degree = 3
-filter_size = 3
+filter_size = 2
 filter_stride = 1
 dataset_size = 22000
 use_pooling = False
@@ -90,10 +91,14 @@ support_vector_labels = hkl.load(f'../data/{dataset}_{str(C)}_SV_labels.hkl')
 np.random.seed(seed)
 indices = np.random.choice(60000, dataset_size, replace=False)
 
-train_features = scaler.fit_transform(hkl.load(f'../data/{dataset}_train_features.hkl')[indices])
-train_labels = hkl.load(f'../data/{dataset}_train_labels.hkl')[indices]
-test_features = scaler.fit_transform(hkl.load(f'../data/{dataset}_test_features.hkl'))
-test_labels = hkl.load(f'../data/{dataset}_test_labels.hkl')
+train_features = hkl.load(f'../data/{dataset}_train_features.hkl')
+# train_labels = hkl.load(f'../data/{dataset}_train_labels.hkl')[indices]
+# test_features = scaler.fit_transform(hkl.load(f'../data/{dataset}_test_features.hkl'))
+# test_labels = hkl.load(f'../data/{dataset}_test_labels.hkl')
+
+v = MinMaxScaler((0, 255)).fit_transform(train_features[300].reshape((20, 20)))
+Image.fromarray(v[2:18, 2:18]).show()
+exit()
 
 
 # num_vectors = len(support_vectors)
@@ -133,22 +138,5 @@ for i in range(2, 8):
           f"Number of SV: {len(machine.support_)}")
 print()
 
-# 2.53 (3, 3) stride = 1 + (2, 2) stride = 1
-# 2.59 (3, 3) stride = 1
-# 2.70 (3, 3) stride = 2
-# 2.74 (2, 2) stride = 1
-# 2.86 (2, 2) stride = 2
-
-# RBF + the THANG degree 3 = 1.880
-# RBF = 2.86
-# degree 9 + the THANG degree 3 = 1.850
-
-# degree 9 = 2.11
-
-# degree 4 coeff=1 = 2.46
-# degree 4 coeff=0 = 2.27
-# degree 4 coeff=1 + the THANG degree 3 = 1.910
-# degree 4 coeff=0 + the THANG degree 3 = 1.860
-# the THANG degree 3 = 1.910
 
 
