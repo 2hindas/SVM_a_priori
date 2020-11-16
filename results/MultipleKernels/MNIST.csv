@@ -1,0 +1,21 @@
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Seed,0
+,Dataset,MNIST
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,K1 + K2 + K3,1.81,9239
+,K1 * K2 * K3,1.55,11421
+,K1,2.69,12014
+,K2,2.29,10285
+,K3,2.8,10420
+,K1^2 + K2^2 + K3^2,1.48,10309
+,K1^2 * K2^2 * K3^2,1.55,16278
+,(K1 + K2 + K3)^2,1.43,10397
+,(K1^2 + K2^2 + K3^2)^2,1.44,13232
+,K1 + K1 * K2 + K1 * K3,1.53,10228

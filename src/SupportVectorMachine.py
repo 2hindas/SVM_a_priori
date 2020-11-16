@@ -12,6 +12,35 @@ from sklearn.metrics import confusion_matrix
 from src.Kernels import JitteredKernel
 
 
+def rotate_SV(vectors, min_degrees, max_degrees, step_size, labels):
+    output = vectors
+    outputlabels = labels
+    for angle in range(min_degrees, max_degrees + 1, step_size):
+        if angle == 0:
+            continue
+        num_sv = len(vectors)
+        transformation = im.rotate(
+            vectors.reshape((num_sv, 21, 21)),
+            axes=(1, 2), order=1, angle=angle,
+            mode='constant', cval=-1, reshape=False)
+        output = np.vstack((output, transformation.reshape((num_sv, 21 * 21))))
+        outputlabels = np.append(outputlabels, labels)
+    return output, outputlabels
+
+
+def translate_SV(vectors, transformations, min_trans, max_trans, labels):
+    output = vectors
+    outputlabels = labels
+    for t in transformations:
+        for i in range(min_trans, max_trans + 1):
+            num_sv = len(vectors)
+            transformation = im.shift(
+                vectors.reshape((num_sv, 21, 21)),
+                (0, t[0] * i, t[1] * i), mode='constant', cval=-1)
+            output = np.vstack((output, transformation.reshape((num_sv, 21 * 21))))
+            outputlabels = np.append(outputlabels, labels)
+    return output, outputlabels
+
 class SupportVectorMachine:
 
     def __init__(self, input_features, target_features, test_features, test_targets):

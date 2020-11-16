@@ -2,16 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size2.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size2_figure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size3.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size3_figure.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/USPS_GS_gamma_kernel_deg_CV3_size3_figure.eps" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/pylint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/Artificial.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/Formatted/Tables.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/MNIST.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/USPS.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ArtificialData.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Fig_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/KernelCombinations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/results/Experiment Descriptions.md" beforeDir="false" afterPath="$PROJECT_DIR$/results/Experiment Descriptions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_figure.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/CV/USPS_GS_gamma_kernel_deg_CV3_size2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size2_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/CV/USPS_GS_gamma_kernel_deg_CV3_size2_figure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/CV/USPS_GS_gamma_kernel_deg_CV3_size3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size3_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/CV/USPS_GS_gamma_kernel_deg_CV3_size3_figure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SupportVectorMachine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SupportVectorMachine.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,23 +70,67 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/results" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/results/CV" />
+      <recent name="$PROJECT_DIR$/results" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/results" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/results" />
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/data" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.graph">
+  <component name="RunManager" selected="Python.ArtificialData">
+    <configuration name="ArtificialData" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SVM_a_priori" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/ArtificialData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="KernelCombinations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SVM_a_priori" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/KernelCombinations.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -85,48 +144,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="experiments" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SVM_a_priori" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/experiments.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="filter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SVM_a_priori" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/filter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -179,11 +196,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.ArtificialData" />
+        <item itemvalue="Python.KernelCombinations" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.graph" />
-        <item itemvalue="Python.filter" />
-        <item itemvalue="Python.experiments" />
       </list>
     </recent_temporary>
   </component>
@@ -441,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1595520276643</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="USPS grid search results">
+      <created>1600518166541</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1600518166541</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -474,83 +498,37 @@
     <option name="LAST_COMMIT_MESSAGE" value="USPS grid search results" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="320" y="128" key="#Notifications" timestamp="1586962356802">
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600596926904">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="128" key="#Notifications/0.23.1440.877@0.23.1440.877" timestamp="1586962356802" />
-    <state x="184" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590696234639">
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1600596926904" />
+    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1605539217689">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="184" y="125" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1440.877@0.23.1440.877" timestamp="1590696234639" />
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1595590699430">
+    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1605539217689" />
+    <state width="1440" height="176" key="GridCell.Tab.0.bottom" timestamp="1605266074051">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1595590699430" />
-    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1595520276439">
+    <state width="1440" height="176" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605266074051" />
+    <state width="1440" height="176" key="GridCell.Tab.0.center" timestamp="1605266074050">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1595520276439" />
-    <state x="100" y="123" width="1240" height="677" key="DiffContextDialog" timestamp="1593774599166">
+    <state width="1440" height="176" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605266074050" />
+    <state width="1440" height="176" key="GridCell.Tab.0.left" timestamp="1605266074050">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="100" y="123" width="1240" height="677" key="DiffContextDialog/0.23.1440.877@0.23.1440.877" timestamp="1593774599166" />
-    <state width="1410" height="221" key="GridCell.Tab.0.bottom" timestamp="1595595075679">
+    <state width="1440" height="176" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605266074050" />
+    <state width="1440" height="176" key="GridCell.Tab.0.right" timestamp="1605266074050">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1410" height="221" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1595595075679" />
-    <state width="1410" height="221" key="GridCell.Tab.0.center" timestamp="1595595075678">
+    <state width="1440" height="176" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605266074050" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1600518168749">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1410" height="221" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1595595075678" />
-    <state width="1410" height="221" key="GridCell.Tab.0.left" timestamp="1595595075678">
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1600518168749" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1600519271467">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1410" height="221" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1595595075678" />
-    <state width="1410" height="221" key="GridCell.Tab.0.right" timestamp="1595595075678">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state width="1410" height="221" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1595595075678" />
-    <state x="120" y="68" key="MergeDialog" timestamp="1593001767685">
-      <screen x="0" y="23" width="1680" height="1027" />
-    </state>
-    <state x="120" y="68" key="MergeDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1593001767685" />
-    <state x="505" y="213" width="574" height="552" key="MultipleFileMergeDialog" timestamp="1593001769023">
-      <screen x="0" y="23" width="1680" height="1027" />
-    </state>
-    <state x="433" y="185" width="574" height="552" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1590696335291" />
-    <state x="505" y="213" width="574" height="552" key="MultipleFileMergeDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1593001769023" />
-    <state x="386" y="179" key="RollbackChangesDialog" timestamp="1592345593272">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="386" y="179" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1592345593272" />
-    <state x="228" y="100" key="SettingsEditor" timestamp="1592143807415">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="228" y="100" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1592143807415" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1595520278006">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1595520278006" />
-    <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1589128499862">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="100" y="123" width="1240" height="677" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.23.1440.877@0.23.1440.877" timestamp="1589128499862" />
-    <state x="509" y="386" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589723059154">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="509" y="386" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.23.1440.877@0.23.1440.877" timestamp="1589723059154" />
-    <state x="407" y="183" key="git4idea.branch.GitSmartOperationDialog" timestamp="1593774190665">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="407" y="183" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.877@0.23.1440.877" timestamp="1593774190665" />
-    <state x="475" y="210" key="git4idea.branch.GitSmartOperationDialog/0.23.1680.1027@0.23.1680.1027" timestamp="1593001761011" />
-    <state x="380" y="368" key="git4idea.ui.GitResetDialog" timestamp="1593369047378">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="380" y="368" key="git4idea.ui.GitResetDialog/0.23.1440.877@0.23.1440.877" timestamp="1593369047378" />
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1595000919673">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1595000919673" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1600519271467" />
   </component>
 </project>

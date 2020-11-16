@@ -1,0 +1,428 @@
+VARYING,,,,
+,Kernel Combinations,,,
+,,,,
+FIXED,,,,
+,Samples per class,300,,
+,Test/training ratio,0.8,,
+,Seed,0,,
+,Dataset,Artificial Dataset,,
+,Filter size,2 and 3,,
+,Filter stride,1,,
+,,,,
+RESULTS,,,,
+,Combiner Name,Kernel Combination,Error,Number of SV
+,OnlyA,K = K1,67.78,175
+,OnlyB,K = K2,67.78,173
+,OnlyC,K = K3,55.28,173
+,BasicSum,K = K1 + K2 + K3,22.08,174
+,BasicProduct,K = K1 * K2 * K3,24.86,174
+,SumOfSquares,K = K1^2 + K2^2 + K3^2,9.31,157
+,ProductOfSquares,K = K1^2 * K2^2 * K3^2,9.31,159
+,SquareOfSum,K = (K1 + K2 + K3) ^ 2,6.39,121
+,SquareOfSummedSquares,K = (K1^2 + K2^2 + K3^2)^2,6.39,119
+,PairwiseProduct,K = K1*K2 + K1*K3 + K2*K3,9.17,156
+,SumPairwiseProduct,K = K1 + K2 + K3 + K1*K2 + K1*K3 + K2*K3 ,7.36,137
+,ProductAddition,K = K1 + K1*K2 + K1*K3,18.19,174VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,68.22,447
+,OnlyB,68.22,447
+,OnlyC,68.22,447
+,BasicSum,68.22,447
+,BasicProduct,68.22,447
+,SumOfSquares,68.22,447
+,ProductOfSquares,68.22,447
+,SquareOfSum,68.22,447
+,SquareOfSummedSquares,68.22,447
+,PairwiseProduct,68.22,447
+,SumPairwiseProduct,68.22,447
+,ProductAddition,68.22,447
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,68.22,447
+,OnlyB,68.22,447
+,OnlyC,68.22,447
+,BasicSum,68.22,447
+,BasicProduct,68.22,447
+,SumOfSquares,68.22,447
+,ProductOfSquares,68.22,447
+,SquareOfSum,68.22,447
+,SquareOfSummedSquares,68.22,447
+,PairwiseProduct,68.22,447
+,SumPairwiseProduct,68.22,447
+,ProductAddition,68.22,447
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,16.53,172
+,OnlyB,16.53,172
+,OnlyC,16.53,172
+,BasicSum,16.53,172
+,BasicProduct,16.53,172
+,SumOfSquares,16.53,172
+,ProductOfSquares,16.53,172
+,SquareOfSum,16.53,172
+,SquareOfSummedSquares,16.53,172
+,PairwiseProduct,16.53,172
+,SumPairwiseProduct,16.53,172
+,ProductAddition,16.53,172
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,300
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,67.78,175
+,OnlyB,67.78,175
+,OnlyC,67.78,175
+,BasicSum,67.78,175
+,BasicProduct,67.78,175
+,SumOfSquares,67.78,175
+,ProductOfSquares,67.78,175
+,SquareOfSum,67.78,175
+,SquareOfSummedSquares,67.78,175
+,PairwiseProduct,67.78,175
+,SumPairwiseProduct,67.78,175
+,ProductAddition,67.78,175
+VARYING
+,Kernel Combinations
+""
+FIXED
+,Samples per class,600
+,Test/training ratio,0.8
+,Seed,0
+,Dataset,Artificial Dataset
+,Filter size,2 and 3
+,Filter stride,1
+""
+RESULTS
+,Combiner Name,Error,Number of SV
+,OnlyA,60.14,347
+,OnlyB,59.58,348
+,OnlyC,59.1,346

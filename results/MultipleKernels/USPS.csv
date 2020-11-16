@@ -1,0 +1,27 @@
+VARYING,,,,
+,Kernel Combinations,,,
+,,,,
+FIXED,,,,
+VARYING,,,,
+,Kernel Combinations,,,
+,,,,
+FIXED,,,,
+,Seed,0,,
+,Dataset,Artificial Dataset,,
+,Filter size,2 and 3,,
+,Filter stride,1,,
+,,,,
+RESULTS,,,,
+,Combiner Name,Kernel Combination,Error,Number of SV
+,OnlyA,K = K1,5.68,1956
+,OnlyB,K = K2,5.68,1772
+,OnlyC,K = K3,5.78,1845
+,BasicSum,K = K1 + K2 + K3,4.54,1666
+,BasicProduct,K = K1 * K2 * K3,4.54,2236
+,SumOfSquares,K = K1^2 + K2^2 + K3^2,4.54,1989
+,ProductOfSquares,K = K1^2 * K2^2 * K3^2,5.03,3125
+,SquareOfSum,K = (K1 + K2 + K3) ^ 2,4.49,2004
+,SquareOfSummedSquares,K = (K1^2 + K2^2 + K3^2)^2,4.54,2571
+,PairwiseProduct,K = K1*K2 + K1*K3 + K2*K3,4.69,1967
+,SumPairwiseProduct,K = K1 + K2 + K3 + K1*K2 + K1*K3 + K2*K3 ,4.54,1850
+,ProductAddition,K = K1 + K1*K2 + K1*K3,4.29,1909

@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 from sklearn import svm
 
-results = pd.read_csv('../results/USPS_gamma&kerneldegree_size2.csv', skiprows=16)
+results = pd.read_csv('../results/CV/USPS_gamma&kerneldegree_size2.csv', skiprows=16)
 
 plt.yticks(np.arange(1.65, 3.5, 0.1))
 plt.xticks(np.arange(0, 0.051, 0.01))

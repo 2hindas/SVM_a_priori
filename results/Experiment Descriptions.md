@@ -95,5 +95,5 @@ Kernel degree: 3  gamma = 0.007  Error: 4.440
 Kernel degree: 4  gamma = 0.006  Error: 4.440
 ```
 
-Results can be found [here](USPS_gamma&kerneldegree_size2.csv) 
+Results can be found [here](CV/USPS_gamma&kerneldegree_size2.csv) 
 
