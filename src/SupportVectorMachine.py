@@ -9,7 +9,6 @@ from sklearn.ensemble import BaggingClassifier, RandomForestClassifier
 from sklearn.metrics.pairwise import rbf_kernel
 from sklearn.metrics import confusion_matrix
 
-from src.Kernels import JitteredKernel
 
 
 def rotate_SV(vectors, min_degrees, max_degrees, step_size, labels):
@@ -20,10 +19,10 @@ def rotate_SV(vectors, min_degrees, max_degrees, step_size, labels):
             continue
         num_sv = len(vectors)
         transformation = im.rotate(
-            vectors.reshape((num_sv, 21, 21)),
+            vectors.reshape((num_sv, 30, 30)),
             axes=(1, 2), order=1, angle=angle,
             mode='constant', cval=-1, reshape=False)
-        output = np.vstack((output, transformation.reshape((num_sv, 21 * 21))))
+        output = np.vstack((output, transformation.reshape((num_sv, 30 * 30))))
         outputlabels = np.append(outputlabels, labels)
     return output, outputlabels
 
@@ -35,9 +34,9 @@ def translate_SV(vectors, transformations, min_trans, max_trans, labels):
         for i in range(min_trans, max_trans + 1):
             num_sv = len(vectors)
             transformation = im.shift(
-                vectors.reshape((num_sv, 21, 21)),
+                vectors.reshape((num_sv, 30, 30)),
                 (0, t[0] * i, t[1] * i), mode='constant', cval=-1)
-            output = np.vstack((output, transformation.reshape((num_sv, 21 * 21))))
+            output = np.vstack((output, transformation.reshape((num_sv, 30 * 30))))
             outputlabels = np.append(outputlabels, labels)
     return output, outputlabels
 

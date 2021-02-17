@@ -10,14 +10,17 @@ def OnlyC(A, B, C):
 
 def BasicSum(A, B, C):
     return A + B + C
+    # return B + C
 
 
 def BasicProduct(A, B, C):
     return A * B * C
+    # return B * C
 
 
 def SumOfSquares(A, B, C):
     return A * A + B * B + C * C
+    # return B * B + C * C
 
 
 def ProductOfSquares(A, B, C):
@@ -51,19 +54,20 @@ expressions[BasicSum] = "$K_1 + K_2 + K_3$"
 expressions[BasicProduct] = "$K_1 * K_2 * K_3$"
 expressions[SumOfSquares] = "$K_1^2 + K_2^2 + K_3^2$"
 expressions[ProductOfSquares] = "$K_1^2 * K_2^2 * K_3^2$"
-expressions[SquareOfSum] = "$(K_1+K_2+K_3) * (K_1+K_2+K_3)$"
-expressions[SquareOfSummedSquares] = "$(K_1^2+K_2^2+K_3^2) * (K_1^2+K_2^2+K_3^2)$"
+expressions[SquareOfSum] = "$(K_1+K_2+K_3)^2$"
+expressions[SquareOfSummedSquares] = "$(K_1^2+K_2^2+K_3^2)^2$"
 expressions[PairwiseProduct] = "$K_1 * K_2 + K_2 * K_3 + K_1 * K_3$"
 expressions[SumPairwiseProduct] = "$K_1 + K_2 + K_3 + K_1 * K_2 + K_2 * K_3 + K_1 * K_3$"
 expressions[ProductAddition] = "$K_1 + K_1 * K_2 + K_1 * K_3$"
 
 
 basic_combinations = [OnlyA, OnlyB, OnlyC]
-# combinations = [OnlyA, OnlyB, OnlyC, BasicProduct, SumOfSquares, ProductOfSquares]
-# combinations = [OnlyA, OnlyB, OnlyC, SumOfSquares, SquareOfSum, SquareOfSummedSquares, PairwiseProduct, SumPairwiseProduct, ProductAddition]
-combinations = [OnlyA, OnlyB, OnlyC, BasicSum, BasicProduct, SumOfSquares, ProductOfSquares, SquareOfSum, SquareOfSummedSquares, PairwiseProduct, SumPairwiseProduct, ProductAddition]
-# combinations = [OnlyA, BasicSum, BasicProduct, SumOfSquares]
-
+# combinations = [OnlyA, OnlyB, OnlyC]
+# combinations = [BasicProduct, BasicSum, PairwiseProduct, SumOfSquares]
+# combinations = [BasicSum, BasicProduct, SumOfSquares, SquareOfSum, SquareOfSummedSquares, PairwiseProduct, SumPairwiseProduct, ProductAddition]
+# combinations = [BasicSum, BasicProduct, SumOfSquares, ProductOfSquares, SquareOfSum, SquareOfSummedSquares, PairwiseProduct, SumPairwiseProduct, ProductAddition]
+combinations = [BasicSum, BasicProduct, SumOfSquares, SquareOfSum, PairwiseProduct, ProductAddition]
+combinations = [ProductAddition]
 
 
 

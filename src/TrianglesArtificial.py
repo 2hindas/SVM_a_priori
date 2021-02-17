@@ -10,7 +10,7 @@ from src.KernelCombinations import combinations, expressions, basic_combinations
 import logging
 import os
 import matplotlib.pyplot as plt
-from PIL import Image
+from PIL import Image, ImageDraw
 import hickle as hkl
 
 tf.enable_eager_execution()
@@ -30,44 +30,103 @@ directions = [(1, 0),  # D
               (-1, -1)]  # LU
 
 # samples per class
-n = 1000
-total_samples = n * 3
-test_ratio = 0.90
+n = 50
+total_samples = n * 2
+test_ratio = 0.9
 num_train = int(round(total_samples * (1 - test_ratio)))
 num_test = int(round(total_samples * test_ratio))
 gamma = 0
 
-X = np.zeros((n * 3, 30, 30))
-Y = np.zeros(n * 3)
+L = 40
+X = np.zeros((n * 2, L, L))
+Y = np.zeros(n * 2)
 
+# L = 40, diameter=15-25
+
+#  TRIANGLES
 for i in range(0, n):
-    x1 = np.random.randint(0, 11)
-    x2 = np.random.randint(10, 21)
-    x3 = np.random.randint(20, 30)
 
-    l1 = np.random.randint(3, 8)
-    l2 = np.random.randint(3, 8)
-    l3 = np.random.randint(3, 8)
+    mask = np.kron(np.ones((L, L)), [[1, 0], [0, 1]])
 
-    y1 = np.random.randint(0, 30 - l1)
-    y2 = np.random.randint(0, 30 - l2)
-    y3 = np.random.randint(0, 30 - l3)
+    diameter = np.random.randint(15, 25)
+    # x = np.random.randint(0, L - diameter)
+    # y = np.random.randint(0, L - diameter)
+    x = np.random.randint(0, L - diameter) + 0.5 * diameter
+    y = np.random.randint(0, L - diameter) + 0.5 * diameter
+    image = Image.new('1', (L, L), 0)
+    draw = ImageDraw.Draw(image)
+    # draw.ellipse((x, y, x+diameter, y+diameter), fill='black', outline='white')
+    draw.regular_polygon((x, y, 0.5*diameter), n_sides=3, rotation=np.random.randint(-5, 5), fill='white', outline='white')
+    # if np.random.uniform(0, 1) > 0.5:
+    X[i] = np.array(image) * 1
+        # Y[i] = 1
+    # else:
+    #     X[i] = np.array(image) * mask[:L, :L]
+        # Y[i] = 1
 
-    X[i, y1:y1 + l1, x1] = 1
-    X[i + n, y2:y2 + l2, x2] = 1
-    X[i + 2 * n, y3:y3 + l3, x3] = 1
+    # X[i] = np.array(image) * 1
+    # Y[i] = 1
 
-X = X.reshape(3 * n, 30 * 30)
+    diameter = np.random.randint(15, 25)
+    x = np.random.randint(0, L - diameter) + 0.5 * diameter
+    y = np.random.randint(0, L - diameter) + 0.5 * diameter
+    image = Image.new('1', (L, L), 0)
+    draw = ImageDraw.Draw(image)
+    draw.regular_polygon((x, y, 0.5*diameter), n_sides=3, rotation=180+np.random.randint(-5, 5), fill='white', outline='white')
+    # if np.random.uniform(0, 1) > 0.5:
+    X[i+n] = np.array(image) * 1
+        # Y[i+n] = 2
+    # else:
+    #     X[i+n] = np.array(image) * mask[:L, :L]
+        # Y[i+n] = 2
+    # X[i + n] = np.array(image) * 1
+    # Y[i] = 2
+
+    # diameter = np.random.randint(10, 20)
+    # x = np.random.randint(0, L - diameter)
+    # y = np.random.randint(0, L - diameter)
+    # image = Image.new('1', (L, L), 0)
+    # draw = ImageDraw.Draw(image)
+    # draw.rectangle((x, y, x + diameter, y + diameter), fill='black', outline='white')
+    # X[i + n] = np.array(image) * 1
+
+
+#  HORIZONTAL VS VERTI
+# for i in range(0, n):
+#
+#     image = Image.new('RGBA', (L, L),  (0,0,0,255))
+#     draw = ImageDraw.Draw(image)
+#     draw.ellipse((2, 2, 28, 28), fill='black', outline='white')
+#     image.save('test.png')
+#     exit(0)
+#
+#     l1 = np.random.randint(3, 5)  # horizontal
+#     l2 = np.random.randint(3, 5)  # vertical
+#
+#     # horizontal
+#     x1 = np.random.randint(0, L - l1)
+#     y1 = np.random.randint(0, L)
+#
+#     # vertical
+#     x2 = np.random.randint(0, L)
+#     y2 = np.random.randint(0, L - l2)
+#
+#     X[i, y1, x1:x1+l1] = 1
+#     X[i + n, y2:y2 + l2, x2] = 1
+
+X = X.reshape(2 * n, L * L)
 
 Y[0:n] = 0
 Y[n:2 * n] = 1
-Y[2 * n:3 * n] = 2
 
 
-# for i, sample in enumerate(X_train):
-#     sample[sample == 1] = 255
-#     img = Image.fromarray(sample.reshape(30, 30)).convert('RGB')
-#     img.save(f'../data/Artificial/X_train_{i+1}_Y_{Y_train[i]:.0f}.jpg', 'JPEG')
+for i, sample in enumerate(X):
+    sample[sample == 1] = 255
+    img = Image.fromarray(sample.reshape(L, L)).convert('RGB')
+    # img.save(f'../data/Artificial/X_train_{i+1}_Y_{Y_train[i]:.0f}.jpg', 'JPEG')
+    img.save(f'../data/Triangles/X{i + 1}_Y_{Y[i]:.0f}.jpg', 'JPEG')
+
+exit(0)
 
 # dataset = "USPS"
 # X_train = hkl.load(f'../data/{dataset}_train_features.hkl')
@@ -125,14 +184,13 @@ def pooling_kernel(x_matrix, y_matrix):
 
 
 
-gammas = np.logspace(-3.5, -0.7, 10)
+gammas = np.logspace(-3.5, -1, 10)
 combination_errors = np.zeros((len(combinations), len(gammas)))
 
-
 # gammas = np.linspace(0.0001, 0.2, 15)
+num_runs = 5
 
-
-for rstate in range(0, 5):
+for rstate in range(0, num_runs):
     X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=test_ratio, random_state=rstate)
     for i, f in enumerate(combinations):
         combiner = f
@@ -146,24 +204,37 @@ for rstate in range(0, 5):
         combination_errors[i] += np.asarray(errors)
         # plt.plot(gammas, errors, label=expressions[f])
 
-combination_errors = combination_errors / 5
+combination_errors = combination_errors / num_runs
 
 index = 3
 
 
-for rstate in range(0, 5):
-    for i in range(3, len(combinations)):
-        plt.clf()
-        plt.ylim(5, 20)
-        plt.plot(gammas, combination_errors[0], label='$K_1$')
-        plt.plot(gammas, combination_errors[1], label='$K_2$')
-        plt.plot(gammas, combination_errors[2], label='$K_3$')
-        f = combinations[i]
-        plt.plot(gammas, combination_errors[i], label=expressions[f])
-        plt.title(f"{num_train} training samples {num_test} test samples")
-        plt.legend(loc='lower right')
-        plt.title(f"{num_train} training samples {num_test} test samples")
-        plt.savefig(f"Fig_{i}.png", dpi=300)
+for i in range(3, len(combinations)):
+    plt.clf()
+    plt.ylim(0, 70)
+    plt.plot(gammas, combination_errors[0], label='$K_1$')
+    plt.plot(gammas, combination_errors[1], label='$K_2$')
+    plt.plot(gammas, combination_errors[2], label='$K_3$')
+    f = combinations[i]
+    plt.plot(gammas, combination_errors[i], label=expressions[f])
+    plt.title(f"{num_train} training samples {num_test} test samples")
+    plt.legend(loc='upper right')
+    plt.title(f"{num_train} training samples {num_test} test samples")
+    plt.xlabel("$\gamma$")
+    plt.ylabel("Generalization error")
+    plt.savefig(f"Triangles_{i}_{num_runs}_runs.png", dpi=300)
+
+plt.clf()
+plt.ylim(0, 70)
+plt.plot(gammas, combination_errors[0], label='$K_1$')
+plt.plot(gammas, combination_errors[1], label='$K_2$')
+plt.plot(gammas, combination_errors[2], label='$K_3$')
+plt.title(f"{num_train} training samples {num_test} test samples")
+plt.legend(loc='upper right')
+plt.title(f"{num_train} training samples {num_test} test samples")
+plt.xlabel("$\gamma$")
+plt.ylabel("Generalization error")
+plt.savefig(f"Triangles_basic_{num_runs}_runs.png", dpi=300)
 
 
 

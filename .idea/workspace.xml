@@ -2,32 +2,82 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/pylint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/Artificial.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/Formatted/Tables.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/MNIST.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/USPS.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ArtificialData.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Fig_9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/KernelCombinations.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_10_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_11_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_3_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_4_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_5_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_6_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_7_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_8_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_9_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/Lines_basic_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/VSV-alldirections.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/kernel-comparison.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Lines/learning-curve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/3 regions Graphs/Fig_9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/Vertical or Horizontal/Fig_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/Vertical or Horizontal/Fig_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/MultipleKernels/Vertical or Horizontal/Fig_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_10_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_11_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_3_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_4_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_5_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_6_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_7_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_8_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_9_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/Triangles/Triangles_basic_5_runs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/.ipynb_checkpoints/ArtificialLinesDataset-checkpoint.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ArtificialLinesDataset.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Kernel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LinesNoiseArtificial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LinesNoiseLearningCurve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SquareCircle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TrianglesArtificial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/USPS.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/USPS_LearningCurve.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/create_figure.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/Lines_LearningCurve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/Lines_Noise_0.1_LearningCurve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/Lines_Noise_0.2_LearningCurve.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/Lines_Noise_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/Lines_Noise_basic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/Lines_Noise_basic_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/Lines_combination_errors.hkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/Lines_errors.hkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/USPS_combination_errors.hkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/USPS_errors.hkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/image_pooled_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/left_pooled.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/right_pooled.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/shift_left.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/shift_right.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/results/test_image.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Experiment Descriptions.md" beforeDir="false" afterPath="$PROJECT_DIR$/results/Experiment Descriptions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/CV/USPS_GS_gamma_kernel_deg_CV3_size2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size2_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/CV/USPS_GS_gamma_kernel_deg_CV3_size2_figure.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/CV/USPS_GS_gamma_kernel_deg_CV3_size3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/USPS_GS_gamma_kernel_deg_CV3_size3_figure.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/CV/USPS_GS_gamma_kernel_deg_CV3_size3_figure.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/MultipleKernels/Artificial Dataset 3 regions Graphs/Fig_9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArtificialData.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/LinesArtificial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/KernelCombinations.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/KernelCombinations.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SupportVectorMachine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SupportVectorMachine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graph.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/graph.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/USPS_GS_gamma_kernel_deg_CV3_size3_figure.eps" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +122,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Markdown" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/results" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -83,13 +133,13 @@
       <recent name="$PROJECT_DIR$/data" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/results" />
       <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/results" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.ArtificialData">
-    <configuration name="ArtificialData" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.LinesNoiseLearningCurve">
+    <configuration name="LinesArtificial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -101,7 +151,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/ArtificialData.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/LinesArtificial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,7 +160,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="KernelCombinations" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="LinesNoiseArtificial" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -122,7 +172,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/KernelCombinations.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/LinesNoiseArtificial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -131,7 +181,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="LinesNoiseLearningCurve" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -143,7 +193,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/Main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/LinesNoiseLearningCurve.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,7 +202,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="graph" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="TrianglesArtificial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -164,7 +214,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/graph.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/TrianglesArtificial.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -173,7 +223,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="USPS" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -185,7 +235,28 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/USPS.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="USPS_LearningCurve" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SVM_a_priori" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/USPS_LearningCurve.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -196,11 +267,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.ArtificialData" />
-        <item itemvalue="Python.KernelCombinations" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.Main" />
-        <item itemvalue="Python.graph" />
+        <item itemvalue="Python.LinesNoiseLearningCurve" />
+        <item itemvalue="Python.LinesArtificial" />
+        <item itemvalue="Python.USPS" />
+        <item itemvalue="Python.USPS_LearningCurve" />
+        <item itemvalue="Python.TrianglesArtificial" />
       </list>
     </recent_temporary>
   </component>
@@ -465,12 +536,18 @@
       <option name="project" value="LOCAL" />
       <updated>1600518166541</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Artificial Dataset with 3 classes (vertical regions) setup and results">
+      <created>1605539351726</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1605539351726</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="NN small experiments." />
     <MESSAGE value="added classes for VSV and JK's" />
     <MESSAGE value="Setup MNIST" />
     <MESSAGE value="Few tests with MNIST" />
@@ -495,40 +572,49 @@
     <MESSAGE value="fixed the prune vector code" />
     <MESSAGE value="USPS experiments" />
     <MESSAGE value="USPS grid search results" />
-    <option name="LAST_COMMIT_MESSAGE" value="USPS grid search results" />
+    <MESSAGE value="Artificial Dataset with 3 classes (vertical regions) setup and results" />
+    <option name="LAST_COMMIT_MESSAGE" value="Artificial Dataset with 3 classes (vertical regions) setup and results" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600596926904">
+    <state x="427" y="271" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613556778497">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1600596926904" />
-    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1605539217689">
+    <state x="427" y="271" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877@0.23.1440.877" timestamp="1613556778497" />
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606157474515">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1605539217689" />
-    <state width="1440" height="176" key="GridCell.Tab.0.bottom" timestamp="1605266074051">
+    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1606157474515" />
+    <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1613561899007">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="176" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1605266074051" />
-    <state width="1440" height="176" key="GridCell.Tab.0.center" timestamp="1605266074050">
+    <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1613561899007" />
+    <state width="1440" height="108" key="GridCell.Tab.0.bottom" timestamp="1613557511841">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="176" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1605266074050" />
-    <state width="1440" height="176" key="GridCell.Tab.0.left" timestamp="1605266074050">
+    <state width="1440" height="108" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1613557511841" />
+    <state width="1440" height="108" key="GridCell.Tab.0.center" timestamp="1613557511840">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="176" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1605266074050" />
-    <state width="1440" height="176" key="GridCell.Tab.0.right" timestamp="1605266074050">
+    <state width="1440" height="108" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1613557511840" />
+    <state width="1440" height="108" key="GridCell.Tab.0.left" timestamp="1613557511840">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="176" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1605266074050" />
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1600518168749">
+    <state width="1440" height="108" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1613557511840" />
+    <state width="1440" height="108" key="GridCell.Tab.0.right" timestamp="1613557511840">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1600518168749" />
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1600519271467">
+    <state width="1440" height="108" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1613557511840" />
+    <state x="382" y="179" key="RollbackChangesDialog" timestamp="1605653745950">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1600519271467" />
+    <state x="382" y="179" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1605653745950" />
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1605539353029">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1605539353029" />
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1613557360184">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="385" y="213" width="670" height="676" key="search.everywhere.popup/0.23.1440.877@0.23.1440.877" timestamp="1613557360184" />
   </component>
 </project>
