@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/MNIST_Learning_curves.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MNIST_Learning_curves2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MNIST_Learning_curves3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/run.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArtificialLinesDataset-Copy1.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArtificialLinesDataset-Copy1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MNIST_Learning_curves.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/MNIST_Learning_curves.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -497,22 +499,22 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1613561963540" />
-    <state width="1440" height="201" key="GridCell.Tab.0.bottom" timestamp="1617034345342">
+    <state width="1440" height="201" key="GridCell.Tab.0.bottom" timestamp="1617034421558">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="201" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1617034345342" />
-    <state width="1440" height="201" key="GridCell.Tab.0.center" timestamp="1617034345341">
+    <state width="1440" height="201" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1617034421558" />
+    <state width="1440" height="201" key="GridCell.Tab.0.center" timestamp="1617034421557">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="201" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1617034345341" />
-    <state width="1440" height="201" key="GridCell.Tab.0.left" timestamp="1617034345341">
+    <state width="1440" height="201" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1617034421557" />
+    <state width="1440" height="201" key="GridCell.Tab.0.left" timestamp="1617034421556">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="201" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1617034345341" />
-    <state width="1440" height="201" key="GridCell.Tab.0.right" timestamp="1617034345342">
+    <state width="1440" height="201" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1617034421556" />
+    <state width="1440" height="201" key="GridCell.Tab.0.right" timestamp="1617034421557">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="201" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1617034345342" />
+    <state width="1440" height="201" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1617034421557" />
     <state x="144" y="100" key="MergeDialog" timestamp="1617014930840">
       <screen x="0" y="23" width="1440" height="877" />
     </state>

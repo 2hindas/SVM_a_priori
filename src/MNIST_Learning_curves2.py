@@ -45,21 +45,21 @@ def pooling_kernel(x_matrix, y_matrix):
     x_length = x_matrix.shape[0]
     y_length = y_matrix.shape[0]
 
-    gram_matrix = rbf_kernel(x_matrix, y_matrix, gamma=A_gamma)
+    # gram_matrix = rbf_kernel(x_matrix, y_matrix, gamma=A_gamma)
 
-    #     x_reshaped = x_matrix.reshape(x_length, sqrt_features, sqrt_features, 1)
-    #     y_reshaped = y_matrix.reshape(y_length, sqrt_features, sqrt_features, 1)
+    x_reshaped = x_matrix.reshape(x_length, sqrt_features, sqrt_features, 1)
+    y_reshaped = y_matrix.reshape(y_length, sqrt_features, sqrt_features, 1)
 
-    #     max_pool = tf.keras.layers.MaxPool2D(pool_size=(2, 2),
-    #                                          strides=1)
-    #     filtered_x = max_pool(x_reshaped).numpy() \
-    #         .reshape(x_length,
-    #                  np.square(int(sqrt_features - 1)))
-    #     filtered_y = max_pool(y_reshaped).numpy() \
-    #         .reshape(y_length,
-    #                  np.square(int(sqrt_features - 1)))
+    max_pool = tf.keras.layers.MaxPool2D(pool_size=(2, 2),
+                                         strides=1)
+    filtered_x = max_pool(x_reshaped).numpy() \
+        .reshape(x_length,
+                 np.square(int(sqrt_features - 1)))
+    filtered_y = max_pool(y_reshaped).numpy() \
+        .reshape(y_length,
+                 np.square(int(sqrt_features - 1)))
 
-    #     pooled_matrix = rbf_kernel(filtered_x, filtered_y, gamma=B_gamma)
+    pooled_matrix = rbf_kernel(filtered_x, filtered_y, gamma=B_gamma)
 
     #     max_pool2 = tf.keras.layers.MaxPool2D(pool_size=(3, 3),
     #                                           strides=1)
@@ -72,7 +72,7 @@ def pooling_kernel(x_matrix, y_matrix):
 
     #     pooled_matrix_2 = rbf_kernel(filtered_x_2, filtered_y_2, gamma=C_gamma)
 
-    return gram_matrix
+    return pooled_matrix
 
 
 def test_error(model, features, labels):
