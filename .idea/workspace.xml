@@ -2,46 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45edc938-fc39-4256-a118-14150176b54c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/paper/Paper Outline.pages" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/egpaper_for_review.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/files/Max Pooling Figures.ai" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/Exported Items.bib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/README.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/cvpr.sty" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/egbib.bib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/egpaper_for_review.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/egpaper_for_review.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/ieee_fullname.bst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/images/line1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/images/line1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/images/line2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/images/line2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/images/lines.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/images/lines_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/images/max-pooling.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/images/noise_lines.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/introduction.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/latex/main.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/paper_skeleton.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paper/paper_skeleton_example_CVPR20.rtf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/.ipynb_checkpoints/ArtificialLinesDataset-Copy1-checkpoint.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ArtificialLinesDataset-Copy1.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/learning-curve-noise.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MNIST_Learning_curves.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_10_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_11_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_3_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_4_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_5_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_6_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_7_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_8_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_9_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/Lines_basic_5_runs.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/Lines/kernel-comparison.png" beforeDir="false" afterPath="$PROJECT_DIR$/results/Lines/kernel-comparison.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/.ipynb_checkpoints/ArtificialLinesDataset-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/.ipynb_checkpoints/ArtificialLinesDataset-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ArtificialLinesDataset.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArtificialLinesDataset.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SupportVectorMachine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/SupportVectorMachine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArtificialLinesDataset-Copy1.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/ArtificialLinesDataset-Copy1.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="multiple-kernel-invariances" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -90,61 +53,19 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-      <recent name="$PROJECT_DIR$/results" />
-      <recent name="$PROJECT_DIR$/data" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/results/CV" />
       <recent name="$PROJECT_DIR$/results" />
       <recent name="$PROJECT_DIR$/data" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/results" />
+      <recent name="$PROJECT_DIR$/data" />
+    </key>
   </component>
-  <component name="RunManager" selected="Python.LinesNoiseLearningCurve">
-    <configuration name="LinesArtificial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="SVM_a_priori" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/LinesArtificial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="LinesNoiseArtificial" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
-      <module name="SVM_a_priori" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/LinesNoiseArtificial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.MNIST_Learning_curves">
     <configuration name="LinesNoiseLearningCurve" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="SVM_a_priori" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -158,6 +79,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/LinesNoiseLearningCurve.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="MNIST_Learning_curves" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="SVM_a_priori" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/MNIST_Learning_curves.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -231,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.LinesNoiseLearningCurve" />
-        <item itemvalue="Python.LinesArtificial" />
-        <item itemvalue="Python.USPS" />
+        <item itemvalue="Python.MNIST_Learning_curves" />
         <item itemvalue="Python.USPS_LearningCurve" />
+        <item itemvalue="Python.USPS" />
         <item itemvalue="Python.TrianglesArtificial" />
+        <item itemvalue="Python.LinesNoiseLearningCurve" />
       </list>
     </recent_temporary>
   </component>
@@ -551,38 +493,42 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="427" y="271" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877@0.23.1440.877" timestamp="1613556778497" />
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606157474515">
-      <screen x="0" y="23" width="1440" height="877" />
-    </state>
-    <state x="458" y="217" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1440.877@0.23.1440.877" timestamp="1606157474515" />
     <state x="0" y="66" key="CommitChangelistDialog2" timestamp="1613561963540">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="0" y="66" key="CommitChangelistDialog2/0.23.1440.877@0.23.1440.877" timestamp="1613561963540" />
-    <state width="1440" height="108" key="GridCell.Tab.0.bottom" timestamp="1613653478931">
+    <state width="1440" height="201" key="GridCell.Tab.0.bottom" timestamp="1617034345342">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="108" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1613653478931" />
-    <state width="1440" height="108" key="GridCell.Tab.0.center" timestamp="1613653478931">
+    <state width="1440" height="201" key="GridCell.Tab.0.bottom/0.23.1440.877@0.23.1440.877" timestamp="1617034345342" />
+    <state width="1440" height="201" key="GridCell.Tab.0.center" timestamp="1617034345341">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="108" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1613653478931" />
-    <state width="1440" height="108" key="GridCell.Tab.0.left" timestamp="1613653478931">
+    <state width="1440" height="201" key="GridCell.Tab.0.center/0.23.1440.877@0.23.1440.877" timestamp="1617034345341" />
+    <state width="1440" height="201" key="GridCell.Tab.0.left" timestamp="1617034345341">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="108" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1613653478931" />
-    <state width="1440" height="108" key="GridCell.Tab.0.right" timestamp="1613653478931">
+    <state width="1440" height="201" key="GridCell.Tab.0.left/0.23.1440.877@0.23.1440.877" timestamp="1617034345341" />
+    <state width="1440" height="201" key="GridCell.Tab.0.right" timestamp="1617034345342">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state width="1440" height="108" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1613653478931" />
-    <state x="382" y="179" key="RollbackChangesDialog" timestamp="1605653745950">
+    <state width="1440" height="201" key="GridCell.Tab.0.right/0.23.1440.877@0.23.1440.877" timestamp="1617034345342" />
+    <state x="144" y="100" key="MergeDialog" timestamp="1617014930840">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="382" y="179" key="RollbackChangesDialog/0.23.1440.877@0.23.1440.877" timestamp="1605653745950" />
+    <state x="144" y="100" key="MergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1617014930840" />
+    <state x="433" y="185" key="MultipleFileMergeDialog" timestamp="1617014930848">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="433" y="185" key="MultipleFileMergeDialog/0.23.1440.877@0.23.1440.877" timestamp="1617014930848" />
     <state x="320" y="203" key="Vcs.Push.Dialog.v2" timestamp="1613561965620">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="320" y="203" key="Vcs.Push.Dialog.v2/0.23.1440.877@0.23.1440.877" timestamp="1613561965620" />
+    <state x="402" y="183" key="git4idea.branch.GitSmartOperationDialog" timestamp="1617014923903">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="402" y="183" key="git4idea.branch.GitSmartOperationDialog/0.23.1440.877@0.23.1440.877" timestamp="1617014923903" />
     <state x="385" y="213" width="670" height="676" key="search.everywhere.popup" timestamp="1613557360184">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
