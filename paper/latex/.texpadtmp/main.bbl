@@ -1,0 +1,74 @@
+\begin{thebibliography}{10}\itemsep=-1pt
+
+\bibitem{albawiUnderstandingConvolutionalNeural2017}
+S. Albawi, T.~A. Mohammed, and S. {Al-Zawi}.
+\newblock Understanding of a convolutional neural network.
+\newblock In {\em 2017 {{International Conference}} on {{Engineering}} and
+  {{Technology}} ({{ICET}})}, pages 1--6, Aug. 2017.
+
+\bibitem{decosteTrainingInvariantSupport2002}
+Dennis Decoste and Bernhard Sch{\"o}lkopf.
+\newblock Training {{Invariant Support Vector Machines}}.
+\newblock {\em Machine Learning}, 46(1):161--190, Jan. 2002.
+
+\bibitem{goodfellowDeepLearning2016}
+Ian Goodfellow, Yoshua Bengio, and Aaron Courville.
+\newblock {\em Deep {{Learning}}}.
+\newblock {MIT Press}, 2016.
+
+\bibitem{haasdonkTangentDistanceKernels2002}
+B. Haasdonk and D. Keysers.
+\newblock Tangent distance kernels for support vector machines.
+\newblock In {\em Object Recognition Supported by User Interaction for Service
+  Robots}, volume~2, pages 864--868 vol.2, Aug. 2002.
+
+\bibitem{haasdonkInvarianceKernelMethods2005}
+B. Haasdonk, A. Vossen, and H. Burkhardt.
+\newblock Invariance in {{Kernel Methods}} by {{Haar}}-{{Integration Kernels}}.
+\newblock In Heikki Kalviainen, Jussi Parkkinen, and Arto Kaarna, editors, {\em
+  Image {{Analysis}}}, Lecture {{Notes}} in {{Computer Science}}, pages
+  841--851, {Berlin, Heidelberg}, 2005. {Springer}.
+
+\bibitem{hutchisonEvaluationPoolingOperations2010b}
+David Hutchison, Takeo Kanade, Josef Kittler, Jon~M. Kleinberg, Friedemann
+  Mattern, John~C. Mitchell, Moni Naor, Oscar Nierstrasz, C. Pandu~Rangan,
+  Bernhard Steffen, Madhu Sudan, Demetri Terzopoulos, Doug Tygar, Moshe~Y.
+  Vardi, Gerhard Weikum, Dominik Scherer, Andreas M{\"u}ller, and Sven Behnke.
+\newblock Evaluation of {{Pooling Operations}} in {{Convolutional
+  Architectures}} for {{Object Recognition}}.
+\newblock In Konstantinos Diamantaras, Wlodek Duch, and Lazaros~S. Iliadis,
+  editors, {\em Artificial {{Neural Networks}} \textendash{} {{ICANN}} 2010},
+  volume 6354, pages 92--101. {Springer Berlin Heidelberg}, {Berlin,
+  Heidelberg}, 2010.
+
+\bibitem{kauderer-abramsQuantifyingTranslationInvarianceConvolutional2017}
+Eric {Kauderer-Abrams}.
+\newblock Quantifying {{Translation}}-{{Invariance}} in {{Convolutional Neural
+  Networks}}.
+\newblock {\em arXiv:1801.01450 [cs]}, Dec. 2017.
+
+\bibitem{lauerIncorporatingPriorKnowledge2008}
+Fabien Lauer and G{\'e}rard Bloch.
+\newblock Incorporating prior knowledge in support vector machines for
+  classification: {{A}} review.
+\newblock {\em Neurocomputing}, 71(7):1578--1594, Mar. 2008.
+
+\bibitem{scholkopfIncorporatingInvariancesSupport1996}
+Bernhard Sch{\"o}lkopf, Chris Burges, and Vladimir Vapnik.
+\newblock Incorporating invariances in support vector learning machines.
+\newblock In Christoph {von der Malsburg}, Werner {von Seelen}, Jan~C.
+  Vorbr{\"u}ggen, and Bernhard Sendhoff, editors, {\em Artificial {{Neural
+  Networks}} \textemdash{} {{ICANN}} 96}, Lecture {{Notes}} in {{Computer
+  Science}}, pages 47--52, {Berlin, Heidelberg}, 1996. {Springer}.
+
+\bibitem{taylorImprovingDeepLearning2017}
+Luke Taylor and Geoff Nitschke.
+\newblock Improving {{Deep Learning}} using {{Generic Data Augmentation}}.
+\newblock {\em arXiv:1708.06020 [cs, stat]}, Aug. 2017.
+
+\bibitem{vapnikNatureStatisticalLearning1995}
+Vladimir~N. Vapnik.
+\newblock {\em The {{Nature}} of {{Statistical Learning Theory}}}.
+\newblock {Springer-Verlag}, {New York}, 1995.
+
+\end{thebibliography}
